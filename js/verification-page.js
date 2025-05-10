@@ -54,7 +54,7 @@
              successMessage.style.display = 'block';
              errorMessage.style.display = 'none';
              setTimeout(() => {
-                 window.location.href = '../pages/user-profile.html';
+                 window.location.href = 'pages/user-profile.html';
              }, 2000);
          } else {
              errorMessage.style.display = 'block';
@@ -95,7 +95,7 @@
     //  showMessage('Enviando código...', true);
      
      try {
-         const response = await fetch('http://localhost:3000/api/send-verification-code', {
+         const response = await fetch('https://amanimoyo-back.onrender.com/api/send-verification-code', {
              method: 'POST',
              headers: {
                  'Content-Type': 'application/json',
