@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function fetchProfilePicture(userId) {
     console.log(userId)
     try {
-        const response = await fetch(`http://localhost:3000/profile-picture/${userId}`);
+        const response = await fetch(`https://amanimoyo-back.onrender.com/profile-picture/${userId}`);
         if (!response.ok) {
             throw new Error('Falha ao buscar imagem');
         }
@@ -34,7 +34,7 @@ async function buscarUsuario(userId) {
     // }
 
     try {
-        const response = await fetch(`http://localhost:3000/api/buscarUsuario/${userId}`);
+        const response = await fetch(`https://amanimoyo-back.onrender.com/api/buscarUsuario/${userId}`);
         const data = await response.json();
 
         if (response.ok) {
