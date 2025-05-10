@@ -51,7 +51,7 @@ document.getElementById('appointmentForm').addEventListener('submit', async(e) =
     data.usuario_Id = userId.id;
     
     // console.log(userId.id);  // Log the form data for debugging
-    const response = await fetch('http://localhost:3000/api/consultas', {
+    const response = await fetch('https://amanimoyo-back.onrender.com/api/consultas', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
