@@ -1,6 +1,5 @@
 // auth.js
 
-const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 document.addEventListener('DOMContentLoaded', function() {
     verificaLogin();
 });
@@ -9,7 +8,7 @@ function verificaLogin() {
     // Verifica se existe um token no localStorage e redireciona para a página de login caso não exista.
     const token = localStorage.getItem('userToken');
     if (!token) {
-        // window.location.href = '../pages/login.html';
+         window.location.href = 'pages/login.html';
         return;
     }
       showUserBtnProfile();
@@ -28,5 +27,5 @@ function logout() {
     // localStorage.removeItem('userToken');
     // localStorage.removeItem('userData');
     localStorage.clear();
-    window.location.href = base + 'pages/login.html';
+    window.location.href = 'pages/login.html';
 }
