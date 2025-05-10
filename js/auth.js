@@ -1,6 +1,6 @@
 // auth.js
 
-
+const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 document.addEventListener('DOMContentLoaded', function() {
     verificaLogin();
 });
@@ -28,5 +28,5 @@ function logout() {
     // localStorage.removeItem('userToken');
     // localStorage.removeItem('userData');
     localStorage.clear();
-    window.location.href = '../pages/login.html';
+    window.location.href = base + 'pages/login.html';
 }

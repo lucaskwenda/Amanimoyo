@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Função para redirecionar para a página de login
   function redirectToLogin() {
     // Salva a página do chat como destino após o login
-    sessionStorage.setItem('redirectAfterLogin', '../chat/chatIA.html');
+    sessionStorage.setItem('redirectAfterLogin', `${base}chat/chatIA.html`);
     // Redireciona para a página de login
-    window.location.href = base + '/login.html';
+    window.location.href = base + 'pages/login.html';
   }
   // Função para redirecionar para o chat
   function redirectToChat() {
-    window.location.href =  base + 'chat/chatIA.html';
+    window.location.href = base + 'chat/chatIA.html';
   }
   
   function handleChatButtonClick() {

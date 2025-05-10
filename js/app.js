@@ -8,6 +8,7 @@ const btnEntrar = document.getElementById('entrar');
 const btnConsulta = document.getElementById('btn-consulta');
 
 const userPhoto = document.querySelector('.user-avatar')
+const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 // const userDate = JSON.pa~9rse(localStorage.getItem('userDate'))
 
  if(btnEntrar) btnEntrar.addEventListener('click', entrar);
@@ -20,9 +21,7 @@ const userPhoto = document.querySelector('.user-avatar')
 
 function entrar(event){
   if(event.type === 'touchstart') event.preventDefault()
-  window.open('../pages/login.html', '_self')
-
- 
+  window.open(base + 'pages/login.html', '_self')
 }
 
 
@@ -39,7 +38,7 @@ function toggleMenu(event){
     }
 }
 const newsletterForm = document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-    alert("deu")
+    // alert("deu")
   e.preventDefault();
   const email = this.querySelector('input').value;
   alert(`Obrigado por se inscrever! Em breve você receberá nossas novidades no email: ${email}`);
