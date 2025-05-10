@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+  <script src="./react/react-cdn/react.development.js"></script>
+  <script src="./react/react-cdn/react-dom.development.js"></script>
+  <script src="./react/react-cdn/babel.js"></script>
+
+  <link rel="stylesheet" href="./css/styledComponets.css">
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/responsive.css" media="screen and (max-width: 990px)">
+  <link rel="stylesheet" href="./css/animação.css">
+
+
+  <title>Amani Moyo</title>
+  <script src="./js/auth.js" type="module" defer></script>  
+</head>
+
+<body>
+  <!-- <div id="spinner"></div> -->
+  <button class="btnScrolIA" id="IA-Btn">IA</button>
+  <a href="#main" id="btnScrolToTop"></a>
+  
+ 
+
+  <main id="main">
+    <header>
+      <div id="menu">
+        <div id="menu-links">
+          <h1 class="logo">
+            <a href="./index.html" id="logo">AMANI MOYO</a>
+          </h1>
+           
+           </div>
+           <button aria-label="Abrir Menu"  id="btn-mobile"
+            aria-haspopup="tree"
+            aria-controls="menu" aria-expanded="false">
+          <span id="icone"></span>
+          </button>
+          <nav id="navMenu" class="nav-menu">
+            <button class="close-menu" id="closeMenu" aria-label="Fechar menu">×</button>
+              <ul class="nav-links">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./explore.html">Explorar</a></li>
+                <li><a href="./assistencia.html">Assistências</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><button id='entrar'>Entrar</button></li>
+                <li>
+                    <!-- user profile -->
+                <div class="nav-user user-profile-btn">
+                  <button class="dropdown-button" onclick="toggleDropdown()">
+                      <img src="" alt="Foto de perfil" class="user-avatar">
+                      <div class="arrow-container">
+                          <div class="arrow-down"></div>
+                      </div>
+                  </button>
+                  <div class="dropdown-content" id="userDropdown">
+                      <a href="./pages/user-profile.html">
+                          <svg class="icon" viewBox="0 0 24 24">
+                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                          </svg>
+                          Meu Perfil
+                      </a>
+                      <a href="/consultas">
+                          <svg class="icon" viewBox="0 0 24 24">
+                              <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                          </svg>
+                          Minhas Consultas
+                      </a>
+                      <a href="/configuracoes">
+                          <svg class="icon" viewBox="0 0 24 24">
+                              <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                          </svg>
+                          Configurações
+                      </a>
+                      <div class="divider"></div>
+                      <a href="#" style="color: #dc3545;" class="logout">
+                          <svg class="icon" viewBox="0 0 24 24">
+                              <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                          </svg>
+                          Sair
+                      </a>
+                  </div>
+              </div>
+                </li>
+            
+              <li>
+                <div class="search-container">
+                  <input type="text" placeholder="Pesquisar..." />
+                  
+                  <img class="search-icon"
+                  src="../assets/img/icones/search-svg.svg" alt="search-icon" />
+          </div>
+              </li>
+            </ul>
+            
+            </nav>
+            <div class="overlay" id="menuOverlay"></div>
+        </div>
+
+
+       <div class="video-background">
+        <video id="background-video" autoplay loop muted playsinline>
+            <source src="./assets/video/header-video-1.mp4" type="video/mp4">
+            <source src="./assets/video/header-video-header.webm" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+        <div class="content">
+          <h1 class="text-intro">
+            Cuidar da mente é tão importante quanto cuidar do corpo. Reserve um momento para si, respire fundo e lembre-se "está tudo bem"
+          </h1>
+          <div class="header-buttons">
+            <button id="btn-consulta"><i class="fas fa-calendar"></i><a href="./assistencia.html">Agendar Consulta</a></button>
+            <button class="btn-chat"><i class="fas fa-robot"></i>Conversar com a IA</button>
+            
+          </div>
+        </div>
+    </div>
+    </header>
+
+    <section>
+      <div class="ideia1">
+        <div class="ideia1-descrcao">
+          <h2>O Maior Ativo na Vida é a Mente</h2>
+          <div id="img-mente" class="img-mente">
+            <img src="./assets/img/home/maior ativo.jpg" alt="Mentalismo" class="img-fluid">
+          </div>
+          <p> A mente é o teu maior ativo porque ela define como aprendes, geres emoções, tomas decisões e experimentas o mundo. Cuidar dela é essencial para alcançar bem-estar, sucesso e felicidade.</p>
+          <p>É o maior tesouro da vida, pois dela nascem todas as ideias, decisões e sentimentos que moldam quem somos e o caminho que seguimos. Cuidá-la é essencial para florescer em equilíbrio e plenitude.</p>
+          <button class="ver-mais"><a href="./pages/mental-health-blog.html">Ver mais</a></button>
+        </div>
+        <div id="img-mente">
+          <img src="./assets/img/home/maior ativo.jpg" alt="Mentalismo" class="img-fluid">
+        </div>
+      </div>
+    </section>
+
+    <!-- IA section -->
+
+    <section class="ai-mental-health-section">
+      <div class="section-containerIA">
+          <div class="contentIA">
+              <h2 class="titleIA">Inteligência Artificial a serviço da saúde mental</h2>
+              <h3 class="subtitleIa">Transformando cuidados e ampliando o acesso ao suporte emocional</h3>
+              <p class="descriptionIA">
+                  A tecnologia está revolucionando a forma como lidamos com a saúde mental. 
+                  Com soluções baseadas em IA, oferecemos suporte acessível 24 horas, 
+                  diagnósticos mais precisos e tratamentos personalizados que se adaptam às 
+                  suas necessidades específicas.
+              </p>
+              <div class="benefitsIA">
+                  <div class="benefitIA-item">
+                      <span class="benefitIA-icon">✓</span>
+                      <span>Suporte 24/7</span>
+                  </div>
+                  <div class="benefitIA-item">
+                      <span class="benefitIA-icon">✓</span>
+                      <span>Análise personalizada</span>
+                  </div>
+                  <div class="benefitIA-item">
+                      <span class="benefitIA-icon">✓</span>
+                      <span>Acompanhamento contínuo</span>
+                  </div>
+                  <div class="benefitIA-item">
+                      <span class="benefitIA-icon">✓</span>
+                      <span>Privacidade garantida</span>
+                  </div>
+              </div>
+              <button class="cta-buttonIA btn-chat">Conversar com a IA</button>
+          </div>
+          <div class="image-wrapper">
+              <div class="decoration-circle circle-1"></div>
+              <div class="decoration-circle circle-2"></div>
+              <img src="./assets/img/home/IA na saude.jpg" alt="Tecnologia de IA na saúde mental" class="illustrationIA">
+          </div>
+      </div>
+  </section>
+
+    <section class="hero-section">
+      <div class="video-background1">
+          <!-- Inserindo um vídeo de placeholder para demonstração -->
+          <video autoplay loop muted playsinline>
+              <source src="./assets/video/6447743cbb4e7d04a126dffc_header-clari-zenklub-transcode.mp4" type="video/mp4">
+              Seu navegador não suporta vídeos HTML5.
+          </video>
+      </div>
+      <div class="overlay1"></div>
+      
+      <div class="content1">
+          <h1>Cuide da Sua Saúde Mental</h1>
+          <p>Todos merecemos uma vida equilibrada e feliz. Aqui você encontra apoio, informações e recursos para cuidar do seu bem-estar emocional e mental todos os dias.</p>
+          
+          <div class="info-cards">
+              <div class="card">
+                <i class="fas fa-comments card-icon"></i>
+                  <h3>Terapia Online</h3>
+                  <p>Sessões de terapia com profissionais qualificados no conforto do seu lar. Flexibilidade de horários para se adaptar à sua rotina.</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-spa card-icon"></i>
+                  <h3>Meditação Guiada</h3>
+                  <p>Aprenda técnicas de meditação e mindfulness para reduzir o estresse e a ansiedade no seu dia a dia.</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-users card-icon"></i>
+                  <h3>Grupos de Apoio</h3>
+                  <p>Conecte-se com pessoas que estão passando por desafios semelhantes em um ambiente seguro e acolhedor.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- explore section -->
+
+  <section class="explore-section">
+    <div class="section-header">
+      <h2 class="section-title">Explore Nossos Recursos</h2>
+      <p class="section-subtitle">Descubra uma variedade de conteúdos cuidadosamente desenvolvidos para apoiar sua jornada de saúde mental.</p>
+    </div>
+    
+    <div class="explore-tabs">
+      <button class="tab-button active" data-tab="videos">Vídeos</button>
+      <button class="tab-button" data-tab="livros">Livros</button>
+      <button class="tab-button" data-tab="blogs">Blogs</button>
+    </div>
+    
+    <div class="tab-content active" id="videos">
+      <div class="explore-container">
+        <div class="explore-content">
+          <div class="explore-category">VÍDEOS EDUCATIVOS</div>
+          <h3 class="explore-title">Aprenda com especialistas em saúde mental</h3>
+          <p class="explore-description">Nossa coleção de vídeos traz explanações claras e práticas sobre técnicas de gerenciamento de ansiedade, meditação guiada e depoimentos inspiradores de pessoas que superaram desafios relacionados à saúde mental.</p>
+          <div class="explore-features">
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>+50 horas de conteúdo</span>
+            </div>
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span>Conteúdo atualizado semanalmente</span>
+            </div>
+          </div>
+          <a href="./pages/youtube-embed-player.html" class="explore-cta">
+            Explorar Vídeos
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="explore-image">
+          <img src="./assets/img/home/30815.jpg" alt="Profissional de saúde mental em vídeo explicativo">
+        </div>
+        <div class="bg-decoration bg-decoration-1"></div>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="livros">
+      <div class="explore-container">
+        <div class="explore-content">
+          <div class="explore-category">BIBLIOTECA DIGITAL</div>
+          <h3 class="explore-title">Leituras transformadoras para seu bem-estar</h3>
+          <p class="explore-description">Nossa biblioteca reúne livros, artigos científicos e e-books cuidadosamente selecionados sobre inteligência emocional, autocuidado, resiliência e desenvolvimento pessoal. Encontre desde leituras introdutórias até análises aprofundadas.</p>
+          <div class="explore-features">
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>+100 títulos disponíveis</span>
+            </div>
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+              </svg>
+              <span>Autores renomados</span>
+            </div>
+          </div>
+          <a href="./pages/book-recommendations.html" class="explore-cta">
+            Descobrir Livros
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="explore-image">
+          <img src="./assets/img/home/2150063081.jpg" alt="Biblioteca com livros sobre saúde mental">
+        </div>
+        <div class="bg-decoration bg-decoration-2"></div>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="blogs">
+      <div class="explore-container">
+        <div class="explore-content">
+          <div class="explore-category">ARTIGOS E BLOGS</div>
+          <h3 class="explore-title">Conteúdo atualizado por especialistas</h3>
+          <p class="explore-description">Nosso blog traz artigos escritos por profissionais de saúde mental, com dicas práticas, análises de estudos recentes e reflexões sobre temas como mindfulness, gestão do estresse, relacionamentos saudáveis e crescimento pessoal.</p>
+          <div class="explore-features">
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>Publicações semanais</span>
+            </div>
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Suporte via comentários</span>
+            </div>
+          </div>
+          <a href="./pages/mental-health-blog.html" class="explore-cta">
+            Ler Artigos
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="explore-image">
+          <img src="./assets/img/home/female-business-person-using-digital-tablet-laptop-remote-working-home-off-generative-ai_1259709-82485.jpg" alt="Pessoa lendo artigos sobre saúde mental em um tablet">
+        </div>
+        <div class="bg-decoration bg-decoration-1"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- nutritional section -->
+
+  <section class="nutrition-section">
+    <!-- Vídeo de fundo -->
+    <div class="video-background-nutri">
+        <div class="video-placeholder-nutri"></div>
+        <!-- Placeholder para vídeo -->
+        <video autoplay muted loop playsinline poster="/api/placeholder/1920/1080">
+            <source src="./assets/video/65671b5709114a400b14d49c_nuticionistas-zenklub-header-transcode.webm" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="container-nutri">
+        <!-- Cabeçalho -->
+        <div class="section-header-nutri">
+            <h2 class="section-title-nutri">Alimentação e Saúde Mental</h2>
+            <p class="section-subtitle-nutri">Descubra como os alimentos que você consome influenciam diretamente seu bem-estar mental e emocional.</p>
+        </div>
+        
+        <!-- Cards - Agora com Font Awesome e mais profissionais -->
+        <div class="cards-container-nutri">
+            <!-- Card 1 -->
+            <div class="card-nutri">
+                <div class="card-icon-nutri">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="card-title-nutri">Alimentos para o Cérebro</h3>
+                <p class="card-description-nutri">Ômega-3, antioxidantes e vitaminas do complexo B fortalecem as conexões neurais e reduzem riscos de ansiedade.</p>
+                <a href="#saiba-mais" class="card-link-nutri">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card-nutri">
+                <div class="card-icon-nutri">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3 class="card-title-nutri">Dieta Anti-inflamatória</h3>
+                <p class="card-description-nutri">Frutas, vegetais e alimentos integrais combatem a inflamação no corpo e no cérebro, estabilizando o humor.</p>
+                <a href="#saiba-mais" class="card-link-nutri">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card-nutri">
+                <div class="card-icon-nutri">
+                    <i class="fas fa-bacterium"></i>
+                </div>
+                <h3 class="card-title-nutri">Microbioma Intestinal</h3>
+                <p class="card-description-nutri">O eixo intestino-cérebro conecta sua digestão às emoções. Probióticos nutrem bactérias que produzem neurotransmissores.</p>
+                <a href="#saiba-mais" class="card-link-nutri">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="card-nutri">
+                <div class="card-icon-nutri">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="card-title-nutri">Estabilidade Glicêmica</h3>
+                <p class="card-description-nutri">Evitar picos de açúcar no sangue através de refeições balanceadas ajuda a manter a energia e reduz alterações de humor.</p>
+                <a href="#saiba-mais" class="card-link-nutri">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-container-nutri">
+            <a href="./assistencia.html" class="cta-button-nutri">
+                <i class="fas fa-calendar-check"></i>
+                Agende uma Consulta
+            </a>
+        </div>
+    </div>
+</section>
+
+ 
+   
+
+
+
+    <footer id="footer" class="footer">
+      <div class="footer-content">
+          <div class="footer-section">
+            <h3>Suporte Emergencial</h3>
+            <div class="support-card pulse">
+              <p>Precisa conversar? Estamos aqui 24/7</p>
+              <a href="tel:+244945371109" class="support-number">(+244)945371109</a>
+              <small>Centro de Valorização da Vida (CVV)</small>
+            </div>
+          </div>
+    
+          <div class="footer-section">
+            <h3>Links Rápidos</h3>
+            <div class="footer-links">
+              <a href="./assistencia.html"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+              <a href="./explore.html"><i class="fas fa-book-reader"></i> Recursos e Artigos</a>
+              <a href="#"><i class="fas fa-users"></i> Grupos de Apoio</a>
+              <a href="./pages/faq-saude-mental-simplified.html"><i class="fas fa-question-circle"></i> Perguntas Frequentes</a>
+            </div>
+          </div>
+    
+          <div class="footer-section">
+            <h3>Contato</h3>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <span>amanimoyo@gamail.com</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>(+244) 975453711 / 954012189</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Av. Kilamba kiaxi, golf-II- Luanda</span>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="https://wa.me/244954012189?text=Olá,%20gostaria%20de%20mais%20informações" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+    
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Receba dicas e informações sobre saúde mental</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Seu e-mail" required />
+              <button type="submit">Inscrever</button>
+            </form>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <p>&copy; 2025 Amani Moyo. Todos os direitos reservados.</p>
+        </div>
+  </footer>
+    
+  </main>
+
+
+  <script src="./react/components/BtnScrolToTop.jsx" type="text/babel"></script>
+
+  <script src="./js/app.js" type="module"></script>
+  <script src="./js/footer.js" type="module"></script>
+  <script src="./js/animation.js"></script>  
+  <script src="./js/home.js"></script>
+
+
+  <script>
+       function toggleDropdown() {
+        const dropdown = document.getElementById("userDropdown");
+        dropdown.classList.toggle("show");
+        
+        // Fecha o dropdown quando clicar fora dele
+        document.addEventListener('click', function(event) {
+            const isClickInside = event.target.closest('.nav-user');
+            if (!isClickInside) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+  </script>
+
+
+  <!--  -->
+</body>
+
+</html>

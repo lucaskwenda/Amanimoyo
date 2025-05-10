@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <script src="./react/react-cdn/react.development.js"></script>
+    <script src="./react/react-cdn/react-dom.development.js"></script>
+    <script src="./react/react-cdn/babel.js"></script>
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/explore.css">
+   
+    <link rel="stylesheet" href="./css/styledComponets.css">
+    <link rel="stylesheet" href="./css/responsive.css" media="screen and (max-width: 990px)">
+    <link rel="stylesheet" href="./css/animação.css">
+    <link rel="stylesheet" href="./css/book-recomendations.css">
+    <title>Amani Moyo - Explore</title>
+    <script src="./js/auth.js" type="module" defer></script>  
+</head>
+<body>
+    
+    <a href="#main" id="btnScrolToTop"></a>
+    <button class="btnScrolIA" id="IA-Btn">IA</button>
+    <div id="spinner"></div>
+    <div id="menu">
+        <div id="menu-links">
+            <h1 class="logo">
+              <a href="./index.html" id="logo">AMANI MOYO</a>
+            </h1>
+             
+             </div>
+             <button aria-label="Abrir Menu"  id="btn-mobile"
+              aria-haspopup="tree"
+              aria-controls="menu" aria-expanded="false">
+            <span id="icone"></span>
+            </button>
+            <nav id="navMenu" class="nav-menu">
+              <button class="close-menu" id="closeMenu" aria-label="Fechar menu">×</button>
+                <ul class="nav-links">
+                  <li><a href="./index.html">Inicio</a></li>
+                  <li><a href="./explore.html">Explorar</a></li>
+                  <li><a href="./assistencia.html">Assistências</a></li>
+                  <li><a href="./sobre.html">Sobre</a></li>
+                  <li><button id='entrar'>Entrar</button></li>
+                  <li>
+                      <!-- user profile -->
+                  <div class="nav-user user-profile-btn">
+                    <button class="dropdown-button" onclick="toggleDropdown()">
+                        <img src="" alt="Foto de perfil" class="user-avatar">
+                        <div class="arrow-container">
+                            <div class="arrow-down"></div>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" id="userDropdown">
+                        <a href="./pages/user-profile.html">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            Meu Perfil
+                        </a>
+                        <a href="/consultas">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                            Minhas Consultas
+                        </a>
+                        <a href="/configuracoes">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                            </svg>
+                            Configurações
+                        </a>
+                        <div class="divider"></div>
+                        <a href="#" style="color: #dc3545;" class="logout">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                            </svg>
+                            Sair
+                        </a>
+                    </div>
+                </div>
+                  </li>
+              
+                <li>
+                  <div class="search-container">
+                    <input type="text" placeholder="Pesquisar..." />
+                    
+                    <img class="search-icon"
+                    src="../assets/img/icones/search-svg.svg" alt="search-icon" />
+            </div>
+                </li>
+              </ul>
+              
+              </nav>
+              <div class="overlay" id="menuOverlay"></div>
+          </div>
+    <main class="loading-content" id="main">
+     <header>
+         <div class="bg-header-explore amani-bg">
+             <div class="content">
+                <h1 class="text-intro-explore">
+            
+                            Explorar não é fugir, é
+                            Encontrar novas formas de seguir E traçar novos caminhos.
+                            <!-- , Mesmo Quando a bússola parece sumir.
+                            Pois dentro de cada desvio,
+                            Há um propósito oculto, e em cada curva, um novo início.    -->
+                </h1>
+            </div>
+            </div>
+        </header>
+        <section class="explore-section">
+            <div id="topics-and-categories">
+                <h2>Artigos e Blogs</h2>
+            </div>
+            <div class="explore-topicos">
+                <div class="explore-topic-card">
+                    <div class="image"><img src="./assets/img/imagens/ansiedade.jpg" alt="jovem sofrendo de ansiedade"></div>
+                    <div class="explore-topic-info">
+                        <h2>Ansiedade</h2>
+                        <p>
+                        <p>Ansiedade é uma resposta natural do corpo a situações de estresse, mas quando se torna excessiva, pode afetar a qualidade de vida. Aprenda a reconhecer os sinais e a lidar com essa condição.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/ansiedade.html">Ver</a></button>
+                    </div>
+                </div>
+
+                <div class="explore-topic-card">
+                    <div class="image"><img src="./assets/img/imagens/depressao.jpg" alt="jovem sofrendo de depresão"></div>
+                    <div class="explore-topic-info">
+                        <h2>Depressão</h2>
+                        <p>
+                        A depressão é uma condição de saúde mental que afeta milhões de pessoas em todo o mundo. Ela pode se manifestar de várias formas, desde tristeza profunda até perda de interesse em atividades que antes eram prazerosas.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/depresao.html">Ver</a></button>
+                    </div>
+                </div>
+
+                <div class="explore-topic-card">
+                    <div class="image"><img src="./assets/img/imagens/meditacao.jpg" alt="jovem meditando"></div>
+                    <div class="explore-topic-info">
+                        <h2>Meditação</h2>
+                        <p>
+                        A meditação é uma prática que envolve focar a mente e eliminar distrações. Ela pode ajudar a reduzir o estresse, melhorar a concentração e promover um estado de relaxamento profundo.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/mindfulness.html">Ver</a></button>
+                    </div>
+                </div>
+              <!-- </div> -->
+                <!-- .outra -->
+            <!-- <div class="explore-topicos"> -->
+                <div class="explore-topic-card">
+                    <div class="image"><img src="./assets/img/imagens/vida saudavel.jpg" alt="vida saudável"></div>
+                    <div class="explore-topic-info">
+                        <h2>Vida Saudável</h2>
+                        <p>
+                        A vida saudável envolve hábitos que promovem o bem-estar físico e mental. Isso inclui alimentação equilibrada, exercícios regulares e cuidados com a saúde emocional.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/estilodevida.html">Ver</a></button>
+                    </div>
+                </div>
+                <div class="explore-topic-card">
+                    <div class="image"><img src="./assets/img/imagens/auto-ajuda.jpg" alt="imagen de auto-ajuda"></div>
+                    <div class="explore-topic-info">
+                        <h2>AutoAjuda</h2>
+                        <p>
+                        A autoajuda é um conceito que envolve o uso de técnicas e estratégias para melhorar a saúde mental e emocional. Isso pode incluir leitura de livros, participação em workshops e práticas de autocuidado.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/autocuidado.html">Ver</a></button>
+                    </div>
+                </div>
+                <div class="explore-topic-card">
+                    <div class="image superacao"><img src="./assets/img/mental-health-blog/insonia.jpg" alt="jovem contando sua historias de superação"></div>
+                    <div class="explore-topic-info">
+                        <h2>Insônia e Distúrbios Mentais</h2>
+                        <p>
+                        A insônia é um distúrbio do sono que pode afetar a saúde mental. Ela pode ser causada por estresse, ansiedade e outros fatores emocionais. Aprenda a identificar os sinais e a buscar ajuda.
+                        </p>
+                        <button class="ver-mais"><a href="./pages/blog-pages/Insônia-e-outros distúrbios-do-sono.html">Ver</a></button>
+                    </div>
+                </div>
+            <!-- </div> -->
+             
+        </section>
+        <div class="ver-mais-div">
+            <button class="ver-mais"><a href="./pages/mental-health-blog.html">Ver mais</a></button>
+            <!-- <hr> -->
+         </div>
+         
+        <!--  Secção de videos -->
+        <section class="video-section">
+            <div class="section-header">
+                <h1 class="titulos">Nossos Vídeos</h1>
+                <p>Confira nossa seleção de conteúdos em vídeo</p>
+            </div>
+    
+            <div class="video-grid">
+                <!-- Vídeo 1 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1lIeDRbWeKc?si=-3zYYdUtniZYt0_S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Desmistificando a saúde mental | ANA BEATRIZ</h3>
+                        <p>Descrição breve do vídeo explicando seu conteúdo e principais destaques.</p>
+                        <div class="video-stats">
+                            <span>📅 12/03/2024</span>
+                            <span>⏱️ 10:30</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Vídeo 2 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tTFo6SspZgM?si=DPn7ijDmmp7I5Zo2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Sexualidade, Pornografia e Saúde Mental - Gabriela Cruz</h3>
+                        <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                        <div class="video-stats">
+                            <span>📅 15/03/2024</span>
+                            <span>⏱️ 15:45</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- video 2 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3lIj2PLwE_s?si=IGtqEGLcM5hziCtd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cláudio Duarte | Fé no Divã: SAÚDE MENTAL E SUPERAÇÃO - Sermão</h3>
+                        <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                        <div class="video-stats">
+                            <span>📅 15/03/2024</span>
+                            <span>⏱️ 15:45</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- video 3 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5kc0ysogL6c?si=dQwJRmYriofPwlg1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Msc. José Siqueira: Como Melhorar sua Saúde Mental e suas Emoções </h3>
+                        <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                        <div class="video-stats">
+                            <span>📅 15/03/2024</span>
+                            <span>⏱️ 15:45</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- video 4 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Nao4tmDWrhs?si=ggQ6nKT67WNaY1Zm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>A técnica cognitiva que ajuda a não pensar demais nos problemas | Ouça 13 minutos</h3>
+                        <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                        <div class="video-stats">
+                            <span>📅 15/03/2024</span>
+                            <span>⏱️ 15:45</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- video 5 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Sj6mC-6dBIM?si=65jz5hQHaTNPHQrb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>14 dicas para manter sua saúde mental - Querida Ansiedade</h3>
+                        <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                        <div class="video-stats">
+                            <span>📅 15/03/2024</span>
+                            <span>⏱️ 15:45</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- video 6-->
+                 
+            </div>
+        </section>
+        <div class="ver-mais-div">
+            <button class="ver-mais"><a href="./pages/youtube-embed-player.html">Ver mais</a></button>
+            <!-- <hr> -->
+         </div>
+        <article>
+            <div class="container">
+                <h1 class="titulos">📚 Biblioteca de Saúde Mental</h1>
+                <p class="description">Uma seleção cuidadosa de livros gratuitos sobre bem-estar mental e desenvolvimento pessoal.</p>
+                
+                <div class="books-grid">
+                    <div class="book-card">
+                        <img src="./assets/img/capa-livros/livro001.png" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">O Poder do Agora</h2>
+                            <p class="book-author">Por Eckhart Tolle</p>
+                            <p class="book-description">Um guia para a transformação pessoal que nos ensina a viver no presente e encontrar paz interior.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/O_Poder_do_Agora_Eckhart_Tolle.pdf" class="download-button" download="O Poder do Agora">Download Gratuito</a>
+                        </div>
+                    </div>
+        
+                    <div class="book-card">
+                        <img src="./assets/img/capa-livros/livro002 (2).png" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">Ansiedade: Como Enfrentar o Mal do Século</h2>
+                            <p class="book-author">Por Augusto Cury</p>
+                            <p class="book-description">Uma análise profunda sobre ansiedade e estratégias práticas para lidar com ela no dia a dia.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/Ansiedade - Como Enfrentar o Ma - Augusto Cury.pdf" class="download-button" download="Ansiedade: Como Enfrentar o Mal do Século">Download Gratuito</a>
+                        </div>
+                    </div>
+        
+                    <div class="book-card">
+                        <img src="./assets/img/capa-livros/livro003 (2).png" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">Mindfulness para Iniciantes</h2>
+                            <p class="book-author">Por Jon Kabat-Zinn</p>
+                            <p class="book-description">Aprenda técnicas simples de mindfulness para reduzir o estresse e viver com mais consciência.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/e-book-manual-mindfulness-para-iniciantes.pdf" class="download-button" download="Mindfulness para Iniciantes">Download Gratuito</a>
+                        </div>
+                    </div>
+        
+                    <div class="book-card">
+                        <img src="#" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">Autocuidado na Prática</h2>
+                            <p class="book-author">Por Maria Silva</p>
+                            <p class="book-description">Um guia prático com exercícios e reflexões para melhorar sua saúde mental no dia a dia.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/eBook-Autocuidado-PsicoRed.pdf" class="download-button" download="Autocuidado na Prática">Download Gratuito</a>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="#" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">O poder do Hábito</h2>
+                            <p class="book-author">Por Maria Silva</p>
+                            <p class="book-description">Um guia prático com exercícios e reflexões para melhorar sua saúde mental no dia a dia.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/O_poder_do_Hábito.pdf.pdf" class="download-button" download="o poder do habito">Download Gratuito</a>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="#" alt="Capa do livro" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">Manual de Primeiros Socorros</h2>
+                            <p class="book-author">Por Maria Silva</p>
+                            <p class="book-description">Um guia prático com exercícios e reflexões para melhorar sua saúde mental no dia a dia.</p>
+                            <a href="./assets/Ebooks-Saúde-Mental/manualdeprimeirossocorros.pdf" class="download-button" download="Manual de Primeiros Socorros(saúde mental)">Download Gratuito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <div class="ver-mais-div">
+            <button class="ver-mais"><a href="./pages/book-recommendations.html">Ver mais</a></button>
+            <!-- <hr> -->
+         </div>
+        
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+              <h3>Suporte Emergencial</h3>
+              <div class="support-card pulse">
+                <p>Precisa conversar? Estamos aqui 24/7</p>
+                <a href="tel:+244945371109" class="support-number">(+244)945371109</a>
+                <small>Centro de Valorização da Vida (CVV)</small>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Links Rápidos</h3>
+              <div class="footer-links">
+                <a href="./assistencia.html"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+                <a href="#topics-and-categories"><i class="fas fa-book-reader"></i> Recursos e Artigos</a>
+                <a href="#"><i class="fas fa-users"></i> Grupos de Apoio</a>
+                <a href="./pages/faq-saude-mental-simplified.html"><i class="fas fa-question-circle"></i> Perguntas Frequentes</a>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Contato</h3>
+              <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <span>amanimoyo@gamail.com</span>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <span>(+244) 975453711 / 954012189</span>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Av. Kilamba kiaxi, golf-II- Luanda</span>
+              </div>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/244954012189?text=Olá,%20gostaria%20de%20mais%20informações" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Newsletter</h3>
+              <p>Receba dicas e informações sobre saúde mental</p>
+              <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Seu e-mail" required />
+                <button type="submit">Inscrever</button>
+              </form>
+            </div>
+          </div>
+      
+          <div class="footer-bottom">
+            <p>&copy; 2025 Amani Moyo. Todos os direitos reservados.</p>
+          </div>
+    </footer>
+    </main> 
+    <script src="./js/app.js"></script>
+    <script src="./js/footer.js" type="module"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- <script src="./bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="./react/components/Menu.jsx" type="text/babel"></script> -->
+
+    <script src="./react/components/BtnScrolToTop.jsx" type="text/babel"></script>
+    <script src="./react/components/Spinner.jsx" type="text/babel"></script>
+    <script src="./js/animation.js"></script>
+    <!-- <script src="./js/spinner.js"></script> -->
+
+    <script>
+
+        function toggleDropdown() {
+                    const dropdown = document.getElementById("userDropdown");
+                    dropdown.classList.toggle("show");
+                    
+                    // Fecha o dropdown quando clicar fora dele
+                    document.addEventListener('click', function(event) {
+                        const isClickInside = event.target.closest('.nav-user');
+                        if (!isClickInside) {
+                            dropdown.classList.remove('show');
+                        }
+                    });
+                }
+        
+        
+          </script>
+</body>
+</html>
