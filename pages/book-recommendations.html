@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    
+    }
+
+    #titulo {
+     margin-top: 3rem !important;
+    padding: 2rem;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 1.3rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+    </style>
+     <script src="../react/react-cdn/react.development.js"></script>
+     <script src="../react/react-cdn/react-dom.development.js"></script>
+     <script src="../react/react-cdn/babel.js"></script>
+    
+     
+      <link rel="stylesheet" href="../css/styledComponets.css">
+      <link rel="stylesheet" href="../css/app.css">
+      <link rel="stylesheet" href="../css/responsive.css" media="screen and (max-width: 990px)">
+      <link rel="stylesheet" href="../css/animação.css">
+    
+    <link rel="stylesheet" href="../css/book-recomendations.css">
+    <script src="../js/auth.js" type="module" defer></script>
+    
+
+    <title>Amani Moyo - Biblioteca</title>
+</head>
+<body>
+
+    <button class="btnScrolIA" id="IA-Btn">IA</button>
+    <a href="#main" id="btnScrolToTop"></a>
+
+    <main>
+        
+        <header>
+            <div id="menu">
+                <div id="menu-links">
+                    <h1 class="logo">
+                      <a href="../index.html" id="logo">AMANI MOYO</a>
+                    </h1>
+                     
+                     </div>
+                     <button aria-label="Abrir Menu"  id="btn-mobile"
+                      aria-haspopup="tree"
+                      aria-controls="menu" aria-expanded="false">
+                    <span id="icone"></span>
+                    </button>
+                    <nav id="navMenu" class="nav-menu">
+                      <button class="close-menu" id="closeMenu" aria-label="Fechar menu">×</button>
+                        <ul class="nav-links">
+                          <li><a href="../index.html">Inicio</a></li>
+                          <li><a href="../explore.html">Explorar</a></li>
+                          <li><a href="../assistencia.html">Assistências</a></li>
+                          <li><a href="../sobre.html">Sobre</a></li>
+                          <li><button id='entrar'>Entrar</button></li>
+                          <li>
+                              <!-- user profile -->
+                          <div class="nav-user user-profile-btn">
+                            <button class="dropdown-button" onclick="toggleDropdown()">
+                                <img src="" alt="Foto de perfil" class="user-avatar">
+                                <div class="arrow-container">
+                                    <div class="arrow-down"></div>
+                                </div>
+                            </button>
+                            <div class="dropdown-content" id="userDropdown">
+                                <a href="./user-profile.html">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                    Meu Perfil
+                                </a>
+                                <a href="/consultas">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                    </svg>
+                                    Minhas Consultas
+                                </a>
+                                <a href="/configuracoes">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                                    </svg>
+                                    Configurações
+                                </a>
+                                <div class="divider"></div>
+                                <a href="#" style="color: #dc3545;" class="logout">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                                    </svg>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                          </li>
+                      
+                        <li>
+                          <div class="search-container">
+                            <input type="text" placeholder="Pesquisar..." />
+                            
+                            <img class="search-icon"
+                            src="../assets/img/icones/search-svg.svg" alt="search-icon" />
+                    </div>
+                        </li>
+                      </ul>
+                      
+                      </nav>
+                      <div class="overlay" id="menuOverlay"></div>
+                  </div>
+        </header>
+        <div class="container">
+            <h2 id="titulo">📚 Biblioteca de Saúde Mental</h2>
+            <p class="description">Uma seleção cuidadosa de livros gratuitos sobre bem-estar mental e desenvolvimento pessoal.</p>
+        
+            <div class="books-grid">
+                <div class="book-card">
+                    <img src="#" alt="Capa do livro" class="book-image">
+                    <div class="book-info">
+                        <h2 class="book-title">O Poder do Agora</h2>
+                        <p class="book-author">Por Eckhart Tolle</p>
+                        <p class="book-description">Um guia para a transformação pessoal que nos ensina a viver no presente e encontrar paz interior.</p>
+                        <a href="#" class="download-button">Download Gratuito</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="#" alt="Capa do livro" class="book-image">
+                    <div class="book-info">
+                        <h2 class="book-title">Ansiedade: Como Enfrentar o Mal do Século</h2>
+                        <p class="book-author">Por Augusto Cury</p>
+                        <p class="book-description">Uma análise profunda sobre ansiedade e estratégias práticas para lidar com ela no dia a dia.</p>
+                        <a href="#" class="download-button">Download Gratuito</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="#" alt="Capa do livro" class="book-image">
+                    <div class="book-info">
+                        <h2 class="book-title">Mindfulness para Iniciantes</h2>
+                        <p class="book-author">Por Jon Kabat-Zinn</p>
+                        <p class="book-description">Aprenda técnicas simples de mindfulness para reduzir o estresse e viver com mais consciência.</p>
+                        <a href="#" class="download-button">Download Gratuito</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="#" alt="Capa do livro" class="book-image">
+                    <div class="book-info">
+                        <h2 class="book-title">Autocuidado na Prática</h2>
+                        <p class="book-author">Por Maria Silva</p>
+                        <p class="book-description">Um guia prático com exercícios e reflexões para melhorar sua saúde mental no dia a dia.</p>
+                        <a href="#" class="download-button">Download Gratuito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer id="footer" class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                  <h3>Suporte Emergencial</h3>
+                  <div class="support-card pulse">
+                    <p>Precisa conversar? Estamos aqui 24/7</p>
+                    <a href="tel:+244945371109" class="support-number">(+244)945371109</a>
+                    <small>Centro de Valorização da Vida (CVV)</small>
+                  </div>
+                </div>
+          
+                <div class="footer-section">
+                  <h3>Links Rápidos</h3>
+                  <div class="footer-links">
+                    <a href="../assistencia.html"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+                    <a href="../explore.html"><i class="fas fa-book-reader"></i> Recursos e Artigos</a>
+                    <a href="#"><i class="fas fa-users"></i> Grupos de Apoio</a>
+                    <a href="faq-saude-mental-simplified.html"><i class="fas fa-question-circle"></i> Perguntas Frequentes</a>
+                  </div>
+                </div>
+          
+                <div class="footer-section">
+                  <h3>Contato</h3>
+                  <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <span>amanimoyo@gamail.com</span>
+                  </div>
+                  <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <span>(+244) 975453711 / 954012189</span>
+                  </div>
+                  <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Av. Kilamba kiaxi, golf-II- Luanda</span>
+                  </div>
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/244954012189?text=Olá,%20gostaria%20de%20mais%20informações" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                  </div>
+                </div>
+          
+                <div class="footer-section">
+                  <h3>Newsletter</h3>
+                  <p>Receba dicas e informações sobre saúde mental</p>
+                  <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Seu e-mail" required />
+                    <button type="submit">Inscrever</button>
+                  </form>
+                </div>
+              </div>
+          
+              <div class="footer-bottom">
+                <p>&copy; 2025 Amani Moyo. Todos os direitos reservados.</p>
+              </div>
+        </footer>
+    </main>
+
+
+    <script src="../react/components/BtnScrolToTop.jsx" type="text/babel"></script>
+
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/footer.js" type="module"></script>
+    <script src="../js/animation.js"></script>  
+  
+  
+    <script>
+  
+  function toggleDropdown() {
+              const dropdown = document.getElementById("userDropdown");
+              dropdown.classList.toggle("show");
+              
+              // Fecha o dropdown quando clicar fora dele
+              document.addEventListener('click', function(event) {
+                  const isClickInside = event.target.closest('.nav-user');
+                  if (!isClickInside) {
+                      dropdown.classList.remove('show');
+                  }
+              });
+          }
+  
+  
+    </script>
+</body>
+</html>

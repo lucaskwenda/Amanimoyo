@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel='shortcut icon' href='../assets/img/icones/logo.ico' type='image/png'>
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <title>Amani Moyo - cadastro</title>
+    <script src="../js/cadastro.js" defer></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TJQ2XJZPTD");
+    </script>
+  </head>
+  <body>
+    <main id="app">
+      <form>
+
+        <div class="step-progress">
+          <strong class="active" data-step>Contato</strong>
+
+          <img src="../assets/img/icones/caret-right.svg" />
+
+          <strong data-step>Informações</strong>
+
+          <img src="../assets/img/icones/caret-right.svg" />
+
+          <strong data-step>Documentação</strong>
+        </div>
+ 
+        <div class="form-step active">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="name">Nome</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Como prefere ser chamado"
+                required
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="phone">Telefone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="number"
+                required
+                placeholder="Informe seu número de telefone"
+                onkeypress="return /\d/.test(event.key)  "
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Informe seu email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="button-wrapper justify-end">
+            <button type="button" class="btn primary" data-action="next">Continuar</button>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="dataNascimento">Data de Nascimento</label>
+              <input
+                id="dataNascimento"
+                name="dataNascimento"
+                type="date"
+                required
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="genero">Selecione o seu genero</label>
+              <select required id="genero">
+                <option value="">Genero</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="Outro">Prefiro não dizer</option>
+            </select>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="aria-de-atuacao">Especialização</label>
+              <select required id="aria-de-atuacao">
+                <option value="">Área de atuação</option>
+                <option value="Ansiedade">Ansiedade</option>
+                <option value="Depressão">Depressão</option>
+                <option value="Estresse">Estresse</option>
+                <option value="Insônia">Insônia</option>
+                <option value="Sindrome do pânico">Sindrome do pânico</option>
+                <option value="Outro">Outro</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+            <button type="button" class="btn primary" data-action="next">Continuar</button>
+          </div>
+        </div>
+
+        <div class="form-step">
+            <div class="content">
+              <div class="input-wrapper">
+                <label for="anos-experiencia">Anos de experiência</label>
+                <input
+                  id="anos-experiencia"
+                  name="anos-experiencia"
+                  type="number"
+                  placeholder="há quanto tempo trabalha na aria?"
+                >
+              </div>
+              <div class="input-wrapper">
+                <label for="comprovanteRegistro">Comprovante de Registro Profissional</label>
+                <input type="file" id="comprovanteRegistro" name="comprovanteRegistro" accept=".pdf,.docx" required>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="certificados">Certificados Relevantes</label>
+                <input type="file" id="certificados" name="certificados" accept=".pdf,.docx" multiple required>
+              </div>
+            </div>
+  
+            <div class="button-wrapper">
+              <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+              <button type="submit" class="btn primary">Criar Conta</button>
+            </div>
+          </div>
+
+      </form>
+    </main>
+  </body>
+</html>

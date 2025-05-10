@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+  <link rel='shortcut icon' href='../assets/img/icones/logo.ico' type='image/png'>
+
+
+  <link rel='stylesheet' href='../css/login.css'>
+  <link rel="stylesheet" href="../css/animação.css">
+  
+  <script src='../js/login.js' defer type="module"></script>
+  <script src="../js/animation.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
+  <title>Amani Moyo - login</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-TJQ2XJZPTD");
+  </script>
+</head>
+
+<body>
+  <div id="spinner">
+    <div class="loading">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+  </div>
+  </div>
+    <!-- Overlay e Popup -->
+    <div class="overlay" id="errorOverlay">
+      <div class="popup">
+        <div class="popup-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+        </div>
+        <h2 class="popup-title">Ops! Algo deu errado</h2>
+        <p class="popup-message">
+          O email ou senha fornecidos não estão corretos. Por favor, verifique suas informações e tente novamente.
+          Se precisar de ajuda, nossa equipe de suporte está sempre disponível para auxiliar.
+        </p>
+        <button class="popup-button">Tentar Novamente</button>
+      </div>
+    </div>
+
+  <div class="loading-content">
+    <div id="page" class="flex">
+      <div>
+        <header>
+          <h1><a href="../index.html">AMANI MOYO</a></h1>
+        </header>
+        <main>
+          <div class="headline">
+            <p>
+              Faça login ou registre-se para começar a explorar 
+              os nossos recursos
+              ainda hoje.
+            </p>
+          </div>
+          <form id="loginForm">
+            <div class="input-wrapper">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                placeholder="Digite seu e-mail"
+              />
+            </div>
+            <div class="input-wrapper">
+              <div class="label-wrapper flex">
+                <label for="password"> Senha </label>
+                <a href="../pages/password-recovery-page.html""> Esqueceu a senha? </a>
+              </div>
+              <input
+                type="password"
+                id="password"
+                required
+                placeholder="Digite sua senha"
+              />
+              <img
+                onclick="togglePassword()"
+                class="eye"
+                src="../assets/img/icones/eye-off.svg"
+                alt=""
+              />
+              <img
+                onclick="togglePassword()"
+                class="eye hide"
+                src="../assets/img/icones/eye.svg"
+                alt=""
+              />
+            </div>
+            <button type="submit">Entrar</button>
+            <div class="create-account">
+              Ainda não tem uma conta?
+              <a href="./cadastro-paciente.html"> Inscreva-se </a>
+            </div>
+          </form>
+        </main>
+      </div>
+      <!-- <img src="../assets/img/bg-login002.jpg" alt="" /> -->
+    </div>
+  </div>
+
+
+  <script>
+    
+    function togglePassword() {
+    document.querySelectorAll('.eye').forEach((eye) => eye.classList.toggle('hide'))
+  
+    const type = document.querySelector('#password')
+    let password = type.getAttribute('type') == 'password' ? 'text' : 'password'
+    type.setAttribute('type', password)
+  
+}
+
+  </script>
+</body>
+
+</html>

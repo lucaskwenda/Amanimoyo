@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação - Amani Moyo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: #f5f9fc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .verification-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            background: #e6eff7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            color: #4a90e2;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #718096;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        .code-container {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .code-input {
+            width: 45px;
+            height: 55px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .code-input:focus {
+            border-color: #4a90e2;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .verify-button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .verify-button:hover {
+            background: #357abd;
+            transform: translateY(-1px);
+        }
+
+        .resend-container {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .resend-button {
+            background: none;
+            border: none;
+            color: #4a90e2;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .resend-button:disabled {
+            color: #a0aec0;
+            cursor: not-allowed;
+        }
+
+        .resend-button:hover:not(:disabled) {
+            color: #357abd;
+            background: #f7fafc;
+            border-radius: 6px;
+        }
+
+        .timer {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .success {
+            background: #f0fff4;
+            color: #2f855a;
+            border: 1px solid #c6f6d5;
+        }
+
+        .error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #fed7d7;
+        }
+
+        @media (max-width: 480px) {
+            .verification-container {
+                padding: 2rem;
+            }
+
+            .code-container {
+                gap: 0.5rem;
+            }
+
+            .code-input {
+                width: 40px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+        </div>
+        <h1>Verificação de Segurança</h1>
+        <p class="description">
+           
+        </p>
+        <div class="code-container">
+            <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+        </div>
+        <button class="verify-button" id="verifyBtn">Confirmar Código</button>
+        <div class="message success">Verificação concluída com sucesso!</div>
+        <div class="message error">Código incorreto. Por favor, tente novamente.</div>
+        <div class="resend-container">
+            <button class="resend-button" id="resendBtn" disabled>
+                Reenviar código
+            </button>
+            <div class="timer">
+                Aguarde <span id="timer">60</span> segundos para reenviar
+            </div>
+        </div>
+    </div>
+    <script src="../js/verification-page.js"></script>
+    
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel='shortcut icon' href='../assets/img/icones/logo.ico' type='image/png'>
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <title>Amani Moyo - cadastro</title>
+    <script src="../js/cadastro.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.min.css">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TJQ2XJZPTD");
+    </script>
+    
+  </head>
+  <body>
+        <!-- Popup de Notificação -->
+        <div class="overlay" id="overlay">
+          <div class="popup" id="popup">
+              <div class="popup-header">
+                  <div class="status-indicator">
+                      <!-- <div class="status-icon">
+                          <i class="fas fa-exclamation"></i>
+                      </div> -->
+                      <div class="status-text">Dados Incompletos</div>
+                  </div>
+                  <button class="close-button" id="closePopup">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <div class="popup-content">
+                  <p class="popup-message">Para prosseguirmos com seu Cadastro, precisamos que você complete as seguintes informações:</p>
+                  
+                  <div class="error-list">
+                      <div class="error-item" id="error1">
+                          <div class="error-icon">
+                              <i class="fas fa-exclamation-circle"></i>
+                          </div>
+                          <div class="error-text"></div>
+                      </div>
+                     
+                  </div>
+                  
+                  <div class="popup-actions">
+                      <button class="btn-update" id="confirmButton">
+                          Completar Informações
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+    <main id="app">
+      <form id="cadastroForm">
+
+        <div class="step-progress">
+          <strong class="active" data-step>Contato</strong>
+
+          <img src="../assets/img/icones/caret-right.svg" />
+
+          <strong data-step>Informações</strong>
+
+          <img src="../assets/img/icones/caret-right.svg" />
+
+          <strong data-step>Objetivos</strong>
+        </div>
+ 
+        <div class="form-step active">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="name">Nome</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Como prefere ser chamado"
+                required
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="phone">Telefone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="number"
+                required
+                placeholder="Informe seu número de telefone"
+                onkeypress="return /\d/.test(event.key)  "
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Informe seu email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="button-wrapper justify-end">
+            <button type="button" class="btn primary" data-action="next">Continuar</button>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="dataNascimento">Data de Nascimento</label>
+              <input
+                id="dataNascimento"
+                name="dataNascimento"
+                type="date"
+                required
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="genero">Selecione o seu genero</label>
+              <select id="genero" name="tipo_genero">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="Outro">Prefiro não dizer</option>
+            </select>
+            </div>
+            <div class="input-wrapper">
+              <label for="transtorno">Selecione o Transtorno</label>
+              <select required id="transtorno" name="tipo_transtorno">
+                <option value="Ansiedade">Ansiedade</option>
+                <option value="Depressão">Depressão</option>
+                <option value="Estresse">Estresse</option>
+                <option value="Insônia">Insônia</option>
+                <option value="Sindrome do pânico">Sindrome do pânico</option>
+                <option value="Outro">Outro</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+            <button type="button" class="btn primary" data-action="next">Continuar</button>
+          </div>
+        </div>
+
+        <div class="form-step">
+            <div class="content">
+              <div class="input-wrapper">
+                <label for="sintomas">Biografia</label>
+                <textarea
+                  id="biografia"
+                  name="biografia"
+                  cols="30"
+                  rows="7"
+                  placeholder="breve Descrição sobre você"
+                ></textarea>
+              </div>
+              <div class="input-wrapper">
+                <label for="objetivos">Senha</label>
+                <input
+                  required
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Defina sua senha para acessar a plataforma"
+                ></input>
+            </div>
+            <div class="input-wrapper">
+              <label for="show-password">Mostra Senha</label>
+              <input
+                type="checkbox"
+                id="show-password"
+                class="checkbox"
+                onclick="showPassword()"
+              ></input>
+            </div>
+  
+            <div class="button-wrapper">
+              <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+              <button type="submit" class="btn primary">Criar Conta</button>
+            </div>
+          </div>
+
+      </form>
+    </main>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/user-profile.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="../js/load-User-Data.js" defer></script>
+    <title>Amani Moyo - Meu Perfil</title>
+  
+</head>
+<body>
+    <div class="container">
+        <!-- Header do Perfil -->
+        <div class="profile-header">
+            <div class="cover-photo">
+                <h1  class="logo"><a href="../index.html">Amani Moyo</a></h1>
+                <div class="change-cover">
+                    <span>Alterar Capa</span>
+                </div>
+            </div>
+            
+            <div class="profile-info">
+                <div class="profile-photo">
+                    <img src="" id="user-photo" alt="Minha Foto">
+                    <div class="change-photo">Alterar Foto</div>
+                </div>
+                
+                <div class="profile-details">
+                    <h2 class="profile-name"></h2>
+                    <p class="profile-role">Em jornada de autocuidado • Membro desde 2024</p>
+                    <div class="mood-badges">
+                        <span class="mood-badge">😊 Bem hoje</span>
+                        <span class="mood-badge">💪 7 dias de progresso</span>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="notification-btn">
+                        🔔
+                        <span class="notification-count">2</span>
+                    </button>
+                    <button class="edit-profile-btn">Editar Perfil</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="profile-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="menu-item active" data-section="info">
+                    📋 Meu Perfil
+                </div>
+                <div class="menu-item" data-section="progress">
+                    📈 Meu Progresso
+                </div>
+                <div class="menu-item" data-section="goals">
+                    🎯 Meus Objetivos
+                </div>
+                <div class="menu-item" data-section="support">
+                    🤝 Rede de Apoio
+                </div>
+                <div class="menu-item" data-section="activities">
+                    ⭐ Atividades
+                </div>
+                <div class="menu-item" data-section="appointments">
+                    📅 Consultas
+                </div>
+                <div class="menu-item" data-section="preferences">
+                    ⚙️ Preferências
+                </div>
+                    <!-- Theme Switch -->
+                    <div class="theme-switch">
+                        <span>Modo Escuro</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+            </div>
+
+            <!-- Área Principal -->
+            <div class="main-content">
+                <!-- Seção de Informações -->
+                <div class="section active" id="info">
+                    <h3>Meu Perfil</h3>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="user-name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="profile-email">
+                    </div>
+                    <div class="form-group">
+                        <label>Sobre Mim</label>
+                        <textarea rows="4" class="biografia"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Interesses</label>
+                        <input type="text" value="Meditação, Yoga, Leitura, Jardinagem">
+                    </div>
+                </div>
+
+                <!-- Seção de Progresso -->
+                <div class="section" id="progress">
+                    <h3>Meu Progresso</h3>
+                    <div class="progress-box">
+                        <h4>Bem-estar Geral</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="goals-list">
+                        <div class="goal-item">
+                            <div class="goal-checkbox"></div>
+                            <span>Praticar 10 minutos de meditação</span>
+                        </div>
+                        <div class="goal-item">
+                            <div class="goal-checkbox checked"></div>
+                            <span>Exercício físico leve</span>
+                        </div>
+                        <div class="goal-item">
+                            <div class="goal-checkbox"></div>
+                            <span>Leitura antes de dormir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção de Notificações -->
+                <div class="section" id="notifications">
+                    <h3>Notificações</h3>
+                    <div class="notification-list">
+                        <div class="notification-item unread">
+                            <div class="notification-dot"></div>
+                            <div>
+                                <strong>Lembrete de Consulta</strong>
+                                <p>Sua próxima sessão é amanhã às 15h</p>
+                                <small>Há 1 hora</small>
+                            </div>
+                        </div>
+                        <div class="notification-item unread">
+                            <div class="notification-dot"></div>
+                            <div>
+                                <strong>Nova Atividade Disponível</strong>
+                                <p>Confira nossa nova meditação guiada</p>
+                                <small>Há 3 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outras seções serão mostradas via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+              <h3>Suporte Emergencial</h3>
+              <div class="support-card pulse">
+                <p>Precisa conversar? Estamos aqui 24/7</p>
+                <a href="tel:+244945371109" class="support-number">(+244)945371109</a>
+                <small>Centro de Valorização da Vida (CVV)</small>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Links Rápidos</h3>
+              <div class="footer-links">
+                <a href="../assistencia.html"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+                <a href="../explore.html"><i class="fas fa-book-reader"></i> Recursos e Artigos</a>
+                <a href="#"><i class="fas fa-users"></i> Grupos de Apoio</a>
+                <a href="faq-saude-mental-simplified.html"><i class="fas fa-question-circle"></i> Perguntas Frequentes</a>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Contato</h3>
+              <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <span>amanimoyo@gamail.com</span>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <span>(+244) 975453711 / 954012189</span>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Av. Kilamba kiaxi, golf-II- Luanda</span>
+              </div>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/244954012189?text=Olá,%20gostaria%20de%20mais%20informações" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+      
+            <div class="footer-section">
+              <h3>Newsletter</h3>
+              <p>Receba dicas e informações sobre saúde mental</p>
+              <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Seu e-mail" required />
+                <button type="submit">Inscrever</button>
+              </form>
+            </div>
+          </div>
+      
+          <div class="footer-bottom">
+            <p>&copy; 2025 Amani Moyo. Todos os direitos reservados.</p>
+          </div>
+    </footer>
+    <script src="../js/user-profile.js" type="module"></script>
+   
+</body>
+</html>
