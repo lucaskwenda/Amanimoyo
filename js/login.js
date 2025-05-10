@@ -20,7 +20,7 @@ function generateSHA256(password) {
     console.log('Enviando para o servidor:', { email, password });
     
     try {
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch('https://amanimoyo-back.onrender.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -78,6 +78,6 @@ document.addEventListener('keydown', function(e) {
 });
 
 function redirectToPerfil()  {
-  window.location.href = '../pages/user-profile.html';
+  window.location.href = 'pages/user-profile.html';
 
 }
