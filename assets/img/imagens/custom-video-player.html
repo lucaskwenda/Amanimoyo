@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player de Vídeo Personalizado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .video-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Aspecto 16:9 */
+            background: #000;
+        }
+
+        .custom-video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .video-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Estilizando os controles do vídeo */
+        .custom-video-player::-webkit-media-controls {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-video-player::-webkit-media-controls-panel {
+            padding: 0 10px;
+        }
+
+        .custom-video-player::-webkit-media-controls-play-button {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="video-section">
+        <div class="section-header">
+            <h2>Nossos Vídeos</h2>
+            <p>Confira nossa seleção de conteúdos em vídeo</p>
+        </div>
+
+        <div class="video-grid">
+            <!-- Vídeo 1 -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                <img src="./ansiedade.jpg" alt="">
+                </div>
+                <div class="video-info">
+                    <h3>Título do Vídeo 1</h3>
+                    <p>Descrição breve do vídeo explicando seu conteúdo e principais destaques.</p>
+                    <div class="video-stats">
+                        <span>📅 12/03/2024</span>
+                        <span>⏱️ 10:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vídeo 2 -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video 
+                        class="custom-video-player"
+                        controls
+                        preload="metadata"
+                        poster="/caminho/para/sua/thumbnail2.jpg">
+                        <source src="/caminho/para/seu/video2.mp4" type="video/mp4">
+                        <source src="/caminho/para/seu/video2.webm" type="video/webm">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3>Título do Vídeo 2</h3>
+                    <p>Outra descrição interessante sobre o conteúdo deste vídeo em particular.</p>
+                    <div class="video-stats">
+                        <span>📅 15/03/2024</span>
+                        <span>⏱️ 15:45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
