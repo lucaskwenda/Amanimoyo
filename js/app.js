@@ -8,7 +8,6 @@ const btnEntrar = document.getElementById('entrar');
 const btnConsulta = document.getElementById('btn-consulta');
 
 const userPhoto = document.querySelector('.user-avatar')
-const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 // const userDate = JSON.pa~9rse(localStorage.getItem('userDate'))
 
  if(btnEntrar) btnEntrar.addEventListener('click', entrar);
@@ -21,7 +20,7 @@ const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 
 function entrar(event){
   if(event.type === 'touchstart') event.preventDefault()
-  window.open(base + 'pages/login.html', '_self')
+  window.open('pages/login.html', '_self')
 }
 
 
