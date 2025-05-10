@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amani Moyo</title>
+    <link rel="stylesheet" href="./css/mental-health-admin-dashboard.css">
+    <link rel="stylesheet" href="./css/mental-health-admin-dashboard-pages.css">
+    
+    <!-- Font Awesome for icons -->
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="./js/spa-mental-health-admin-dashboard.js" defer></script>
+    <script src="./js/mental-health-admin-dashboard-pages.js" defer></script>
+    <script defer src="./js/login.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Dashboard</h1>
+        <div class="header-right">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar...">
+            </div>
+            <div class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-profile">
+                <img src="#" alt="Admin">
+                <span>Admin</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="toggle-btn" id="toggleSidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="brand">
+                <img src="../assets/img/logo.png" alt="Logo">
+                <h2 class="logo-text"><a href="../index.html">Amani Moyo</a></h2>
+            </div>
+            <div class="menu">
+                <a href="#" class="menu-item active" data-text="Dashboard" data-page="Dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="" class="menu-item" data-text="Usuarios" data-page="Usuarios">
+                    <i class="fas fa-users"></i>
+                    <span class="menu-text">Usuários</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Atividade" data-page="Atividade">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="menu-text">Atividade</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Conteudo" data-page="Conteudo">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Conteúdo</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Suporte" data-page="Suporte">
+                    <i class="fas fa-headset"></i>
+                    <span class="menu-text">Suporte</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Alertas" data-page="Alertas">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Alertas</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Analise" data-page="Analise">
+                    <i class="fas fa-chart-pie"></i>
+                    <span class="menu-text">Análise</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Configurações" data-page="Configurações">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Configurações</span>
+                </a>
+                <a href="#" class="menu-item" data-text="Relatórios" data-page="Relatórios">
+                    <i class="fas fa-file-export"></i>
+                    <span class="menu-text">Relatórios</span>
+                </a>
+            </div>
+        </div>
+       
+        <!-- Main Content -->
+        <div class="main-content">
+          
+        </div>
+        
+    </div>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const toggleBtn = document.getElementById('toggleSidebar');
+        var isToogle = true
+
+        
+        
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            // if(isToogle){
+            //     sidebar.classList.add('sidebar-toogle');
+            //     isToogle = ! isToogle
+            //     return
+            // }
+            // e
+            // sidebar.classList.remove('sidebar-toogle');
+            // isToogle = ! isToogle
+        });
+       
+
+        //   Adiciona classe ativa ao item do menu clicado
+          const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove classe ativa de todos os itens
+                menuItems.forEach(i => i.classList.remove('active'));
+                // Adiciona classe ativa ao item clicado
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+                
