@@ -54,7 +54,7 @@ const newsletterForm = document.getElementById('newsletterForm').addEventListene
 const suporteNumber = document.querySelector('.support-number').addEventListener('click', function(e) {
 
     if (!confirm('Você será redirecionado para a ligação com o suporte de atendimento (Amani Moyo). Deseja continuar?')) {
-        alert("deu")
+       
       e.preventDefault();
      
     }
