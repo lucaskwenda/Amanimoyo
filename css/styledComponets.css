@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+
+:root {
+  --primary: #5b7ff3;
+--secondary: #9c78ea;
+  --transition: all 0.3s ease;
+  --background: #ffffff;
+  --background-light: #f9fbff;
+  --shadow-light: 0 4px 12px rgba(91, 127, 243, 0.08);
+  --text-light: #546e7a;
+}
+
+.loading-content{display: none;}
+
+#menu {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px !important;
+  position: fixed;
+  top: 0;
+  z-index: 20000;
+  background: var(--background);
+  box-shadow: var(--shadow-light);
+
+}
+
+#logo{
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--transition);
+  padding: 1.8rem;
+}
+
+.nav-menu{
+  padding-left: 4rem;
+}
+
+
+#btn-mobile{
+  display: none !important;
+}
+
+nav ul{
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 17px;
+}
+
+li a{text-decoration: none;
+  /* color: #fff; */
+  /* color: #00b894 !important; */
+  position: relative;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.2rem;
+  transition: var(--transition);
+}
+li a:hover{
+  color: var(--primary);
+
+}
+
+nav button{
+  all: unset;
+}
+li button{
+  width: 94px;
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid var(--secondary);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.5s;
+}
+li button:hover{
+  background: transparent !important;
+  color: var(--text-light);
+}
+
+/* user profile */
+.nav-user {
+  /* background-color: rebeccapurple; */
+  /* margin-left: -30px; */
+  position: relative;
+  display: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  /* margin: auto; */
+  /* padding: 2px; */
+  object-fit: cover;
+  transition: border-color 0.3s;
+}
+
+.user-avatar:hover {
+  border-color: var(--primary);
+ 
+}
+
+.dropdown-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  position: relative;
+  width: 50px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 1;
+  margin-top: 10px;
+  animation: slideDown 0.3s ease;
+}
+
+/* Triângulo indicador acima do dropdown */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -10px);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+  }
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color: var(--secondary);
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 5px 0;
+}
+
+/* Ajuste do pino para baixo */
+.arrow-container {
+  position: absolute;
+  right: 4px;
+  bottom: 5px;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+}
+
+
+.search-container {
+  position: relative;
+  width: 250px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.search-container input:focus{
+  border-color: #9c78ea;
+  border-width: 1px;
+}
+
+.search-container .search-icon {
+  width: 25px;
+  position: absolute;
+  right: 10px !important;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.btnScrolIA{
+  display: none; 
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color:var(--primary); /*  #184e55 Set a background color
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  /* padding: 15px; Some padding */
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  line-height: 54px !important;
+  opacity: 0.1;
+  display: none; 
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+#btnScrolToTop {
+  display: none; 
+  position: fixed; /* Fixed/sticky position */
+  bottom: 80px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--primary); /*  
+ 
+  /* padding: 15px; Some padding */
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  
+  opacity: 0.1;
+}
+#btnScrolToTop span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+}
+
+ 

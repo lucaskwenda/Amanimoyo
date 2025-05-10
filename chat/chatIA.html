@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aman moyo - ChatIA</title>
+
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+     <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="loadTheme()">
+     <!-- Pop-up de confirmação -->
+     <div id="exitPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2 class="popup-title">Você deseja realmente sair?</h2>
+            <p class="popup-message">
+                Lembre-se você sempre pode retornar quando precisar de apoio. Estou aqui para ajudar 24/7🥰.
+            </p>
+            <div class="popup-buttons">
+                <button onclick="hideExitConfirmation()" class="btn btn-secondary">Não</button>
+                <button onclick="confirmExit()" class="btn btn-primary">Sim</button>
+            </div>
+        </div>
+    </div>
+     <!-- Pop-up de confirmação -->
+     <div id="clearPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="icon-container">
+                <i class="ph-trash"></i>
+            </div>
+            <h2 class="popup-title">Limpar conversa do chat?</h2>
+            <p class="popup-message">
+                Irá apagar todas as mensagens desta conversa.
+                Esta ação não pode ser desfeita.
+            </p>
+            <div class="popup-buttons">
+                <button onclick="hideClearConfirmation()" class="btn btn-secondary">        Cancelar
+                </button>
+                <button onclick="confirmClear()" class="btn btn-danger">
+                    Limpar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">U</div>
+                <div class="user-info">
+                    <div style="font-weight: 600;" class="user-name">Usuário</div>
+                    <div  style="font-size: 0.8rem; color: #666;"><span class="status-dot"></span>Online</div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-area">
+            <div class="chat-header">
+                <h2>Amani Moyo - IA</h2>
+                <div class="settings-panel">
+                    <button class="settings-btn" id="theme-toggle">
+                        <i id="themeIcon" class="fas fa-moon"></i>
+                    </button>
+                    <button onclick="showClearConfirmation()" class="settings-btn action-btn" id="clearChat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button onclick="showExitConfirmation()" class="settings-btn exitchat-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                  
+                </div>
+
+            </div>
+            
+            <div class="messages-container" id="messages">
+                <div class="message ai">
+                    <div class="message-content">
+                        Olá! Eu sou seu assistente virtual de saúde mental. Como posso ajudar você hoje?
+                    </div>
+                    <div class="message-time">Agora</div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typing">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea 
+                        class="message-input" 
+                        placeholder="Digite sua mensagem..." 
+                        id="messageInput"
+                        rows="1"
+                    ></textarea>
+                    <button class="action-btn" id="emoji-btn">
+                 <i class="far fa-smile"></i>
+                    </button>
+                    <button class="action-btn" id="voice-input-btn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="send-button" id="sendButton">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                    
+                </div>
+            </div>
+            <div class="emotion-picker">
+                <div class="emotion-item">
+                    <span>😌</span>
+                    <small>Calmo</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🌱</span>
+                    <small>Esperançoso</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😢</span>
+                    <small>Triste</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😰</span>
+                    <small>Ansioso</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😊</span>
+                    <small>Feliz</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😴</span>
+                    <small>Cansado</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🤨</span>
+                    <small>Confuso</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🙏</span>
+                    <small>Grato</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😫</span>
+                    <small>Estressado</small>
+                </div>
+                <div class="emotion-item">
+                    <span>💪</span>
+                    <small>Motivado</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🧘</span>
+                    <small> Meditação</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🤗</span>
+                    <small>Abraço</small>
+                </div>
+                <div class="emotion-item">
+                    <span>😓</span>
+                    <small>AStress</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🥺</span>
+                    <small>Vulnerabilidade</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🫂</span>
+                    <small>Abraço reconfortante</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🌈</span>
+                    <small>Esperança</small>
+                </div>
+                <div class="emotion-item">
+                    <span>✨</span>
+                    <small>Luz</small>
+                </div>
+                <div class="emotion-item">
+                    <span>💖</span>
+                    <small>Amor próprio</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🕊️</span>
+                    <small>Paz</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🌞</span>
+                    <small>Otimismo</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🍃</span>
+                    <small>Leveza</small>
+                </div>
+                <div class="emotion-item" >
+                    <span>🌻</span>
+                    <small>Renovação</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🚀</span>
+                    <small>Progresso</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🤝</span>
+                    <small>Apoio</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🙏</span>
+                    <small>Gratidão</small>
+                </div>
+                <div class="emotion-item">
+                    <span>❤️</span>
+                    <small>Amor</small>
+                </div>
+                <div class="emotion-item">
+                    <span>💕</span>
+                    <small>Autocuidado</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🤍</span>
+                    <small>Pureza</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🔮</span>
+                    <small>Reflexão</small>
+                </div>
+                <div class="emotion-item">
+                    <span>💡</span>
+                    <small>Insights</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🛡️</span>
+                    <small>Proteção</small>
+                </div>
+                <div class="emotion-item">
+                    <span>🤲</span>
+                    <small>Compreensão</small>
+                </div>
+                <div class="emotion-item">
+                    <span>💭</span>
+                    <small>Pensativo</small>
+                </div>
+                </div>
+
+        <!-- kfkjkbbkdguriufgrugieurf -->
+
+        </div>
+    </div>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- <script src="IA.js"></script> -->
+    <script src="script.js"></script>
+
+    <script >
+       
+       const chatContainer = document.querySelector('.chat-container')
+        const sideBar = document.querySelector('.sidebar')
+        const userProfile = document.querySelector('.user-profile')
+        const chatArea = document.querySelector('.chat-area')
+        const inputArea = document.querySelector('.input-area')
+        const chatHeader = document.querySelector('.chat-header')
+        const messageTime = document.querySelector('.message-time')
+        const icon = document.getElementById('themeIcon')
+
+        function loadTheme(){
+           var themeStatusSeved = localStorage.getItem('statetheme')
+        
+        if (themeStatusSeved) {
+            document.body.classList.toggle('dark-mode')
+            changeIcons()
+         } 
+       }
+
+       var stateTheme = false;
+       const themeIntervalTime = 100
+
+       let themeIntervalID
+       let themeIntervalID2
+
+
+    
+       const themetoggle = document.getElementById('theme-toggle')
+       themetoggle.addEventListener('click', ()=>{
+        document.body.classList.toggle('dark-mode')
+             changeIcons()
+       })
+       function changeIcons(){
+        
+
+       
+        if(document.body.classList.contains('dark-mode')){
+    
+            stateTheme = true // altera entre o estado dark e ligth
+            localStorage.setItem('statetheme', stateTheme)
+            icon.classList.replace('fa-moon', 'fa-sun')// altere para ligth
+            clearInterval(themeIntervalID2)
+            themeIntervalID2 = null
+            if(!themeIntervalID){  // se tem um intervalo
+                themeIntervalID = setInterval(darkMode, themeIntervalTime)
+            }  
+            }
+
+                  
+        else{
+            icon.classList.replace('fa-sun', 'fa-moon')//altere para dark
+            clearInterval(themeIntervalID)
+            themeIntervalID = null
+            // if(!themeIntervalID2)themeIntervalID2 = setInterval(lightMode,themeIntervalTime
+            lightMode()
+            localStorage.removeItem('statetheme')
+        }
+       }
+       function lightMode(){
+        console.log('ligth mode')
+        const messageInput = document.querySelector('.message-input')
+        const messageUser = document.querySelectorAll('.message.user')
+        const messageIA = document.querySelectorAll('.message.ai')
+       
+        document.body.classList.remove('darkmode')
+       chatContainer.classList.remove('chatContainer')
+       sideBar.classList.remove('sideBar')
+       userProfile.classList.remove('userProfile')
+       chatArea.classList.remove('chatArea')
+       inputArea.classList.remove('inputArea')
+       messageInput.classList.remove('messageInput')
+       chatHeader.classList.remove('chatheader')
+       messageTime.classList.remove('messagetime')
+       
+       messageUser.forEach(messageUser => {
+        messageUser.style.cssText = `
+         color: black;
+         background:#e3f2fd;
+         `
+
+        });
+        messageIA.forEach(messageIA => {
+        messageIA.style.backgroundColor = '#f5f5f5';
+        });
+        
+       }
+       function darkMode(){
+       
+        const messageInput = document.querySelector('.message-input')
+        const messageUser = document.querySelectorAll('.message.user')
+        const messageIA = document.querySelectorAll('.message.ai')
+       
+        console.log('iniciando')
+        document.body.classList.add('darkmode')
+        chatContainer.classList.add('chatContainer')
+        sideBar.classList.add('sideBar')
+        userProfile.classList.add('userProfile')
+        chatArea.classList.add('chatArea')
+        inputArea.classList.add('inputArea')
+        messageInput.classList.add('messageInput')
+        chatHeader.classList.add('chatheader')
+        messageTime.classList.add('messagetime')
+        // messageUser.classList.add('messageUser')
+      
+       messageUser.forEach(messageUser => {
+        messageUser.style.cssText = `
+         color: white;
+         background:#4CAF50;
+         `
+
+        });
+        messageIA.forEach(messageIA => {
+        messageIA.style.backgroundColor = '#333333';
+        });
+       }
+       function themeToggle(){
+        console.log('executando ação')
+         if(stateTheme){
+           darkMode()
+         }else{
+
+         }
+        //  localStorage.setItem(_stateTheme,  stateTheme)
+       }
+      function chengeTheme(){
+        
+      
+       }
+      
+       
+       
+        // alert("deu")
+    </script>
+
+
+
+
+    <script>
+    //    // Estrutura de dados para armazenar conversas
+    //    const ChatStore = {
+    //         // Chave para localStorage
+    //         STORAGE_KEY: 'mental_health_chat_history',
+           
+            
+    //         // Inicializar store
+    //         init() {
+    //             const stored = localStorage.getItem(this.STORAGE_KEY);
+    //             if (!stored) {
+    //                 const initialData = {
+    //                     conversations: {},
+    //                     lastSession: null
+    //                 };
+    //                 this.saveToStorage(initialData);
+    //                 return initialData;
+    //             }
+    //             return JSON.parse(stored);
+    //         },
+            
+    //         // Salvar no localStorage
+    //         saveToStorage(data) {
+    //             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+    //         },
+            
+    //         // Adicionar nova mensagem
+    //         addMessage(message, isUser) {
+    //             const data = this.init();
+    //             const today = new Date().toLocaleDateString();
+                
+    //             if (!data.conversations[today]) {
+    //                 data.conversations[today] = [];
+    //             }
+                
+    //             data.conversations[today].push({
+    //                 content: message,
+    //                 isUser,
+    //                 timestamp: new Date().toISOString()
+    //             });
+                
+    //             data.lastSession = today;
+    //             this.saveToStorage(data);
+                
+    //             return data;
+    //         },
+            
+    //         // Carregar conversas
+    //         loadConversations() {
+    //             return this.init();
+    //         },
+            
+    //         // Limpar histórico
+    //         clearHistory() {
+    //             localStorage.removeItem(this.STORAGE_KEY);
+               
+    //             return this.init();
+    //         }
+    //     };
+
+        // // Configuração da API
+        const API_KEY = "d735cbc0fb414e62d2c9e2a8bb66162711b75e77be899b9eca2a94b90a4d498f";
+        const API_URL = "https://api.together.xyz/v1/chat/completions";
+        // Elementos do DOM
+        const messagesContainer = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const typingIndicator = document.getElementById('typing');
+        const clearChatButton = document.getElementById('clearChat');
+        const chatHistory = document.getElementById('chatHistory');
+
+        // // Carregar histórico ao iniciar
+        // function loadChatHistory() {
+        //     const data = ChatStore.loadConversations();
+        //     messagesContainer.innerHTML = '';
+        //     // chatHistory.innerHTML = '';
+            
+        //     // Se não houver conversas anteriores, mostrar mensagem inicial
+        //     if (Object.keys(data.conversations).length === 0) {
+        //         addMessage("Olá! Eu sou seu assistente virtual de saúde mental. Como posso ajudar você hoje?", false);
+        //         return;
+        //     }
+
+        //     // Carregar conversas do dia atual
+        //     const today = new Date().toLocaleDateString();
+        //     if (data.conversations[today]) {
+        //         data.conversations[today].forEach(msg => {
+        //             addMessageToUI(msg.content, msg.isUser, new Date(msg.timestamp));
+        //         });
+        //     } else {
+        //         addMessage("Olá! Eu sou seu assistente virtual de saúde mental. Como posso ajudar você hoje?", false);
+        //     }
+
+        //     // Atualizar sidebar com datas das conversas
+        //     Object.keys(data.conversations).reverse().forEach(date => {
+        //         const dateDiv = document.createElement('div');
+        //         dateDiv.className = 'chat-date';
+        //         dateDiv.textContent = date;
+        //         // chatHistory.appendChild(dateDiv);
+        //     });
+        // }
+
+        // Função para formatar hora
+        function formatTime(date) {
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Função para adicionar mensagem à UI
+        function addMessageToUI(content, isUser, timestamp = new Date()) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = content;
+            
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-time';
+            messageTime.textContent = formatTime(timestamp);
+            
+            messageDiv.appendChild(messageContent);
+            messageDiv.appendChild(messageTime);
+            messagesContainer.appendChild(messageDiv);
+            
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Função para adicionar mensagem
+        function addMessage(content, isUser) {
+            addMessageToUI(content, isUser);
+            ChatStore.addMessage(content, isUser);
+        }
+
+        // // Função para limpar chat
+        // clearChatButton.addEventListener('click', () => {
+        //     if (confirm('Tem certeza que deseja limpar todo o histórico de conversas?')) {
+        //         ChatStore.clearHistory();
+        //         loadChatHistory();
+        //     }
+        // });
+
+        const IaContext = 'Você é uma assistente de saúde mental doce, carinhosa, bem-humorada e acolhedora. O teu nome é Amani Moyo IA, foste desenvolvida pelos estudantes do Complexo escolar privado Coléma, os teu criadores são: Lucas Kwenda, Gedeão Kiala, Ambrosio dos Santos e Jhony Dilukila. focada sempre em suporte emucional, Responda sempre de forma curta, simples,gentil e positiva, podes usar emoji bonitos(não toda hora, só quando necessario) e formata bem os teu texto, quando ouver a necessidade de quebar linha quebra para ficar tudo bonito, ajudando o usuário a se sentir melhor como nunca.'
+
+        // Função para enviar mensagem para a API
+        async function sendToAI(message) {
+        
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                         "Authorization": `Bearer ${API_KEY}`,
+                         "Content-Type": "application/json"
+                    },
+                   
+                    body: JSON.stringify({
+                        messages: [
+          { role: "system", content: IaContext },
+          { role: "user", content: message }
+        ],
+                        model: 'meta-llama/Llama-3-8b-chat-hf',
+                        temperature: 0.7,
+                        max_tokens: 200
+                    })
+                });
+
+                const data = await response.json();
+                return data.choices[0].message.content;;
+            } catch (error) {
+                console.error('Erro ao se comunicar com a API:', error);
+                return 'Desculpe, ocorreu um erro ao processar sua mensagem.';
+            }
+        }
+
+        // Função para processar o envio de mensagem
+        async function handleSendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+
+            addMessage(message, true);
+            toggleTypingIndicator(true);
+
+            const response = await sendToAI(message);
+            toggleTypingIndicator(false);
+            addMessage(response, false);
+        }
+
+        // Event listeners
+        sendButton.addEventListener('click', handleSendMessage);
+        
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+
+        // Função para mostrar/esconder indicador de digitação
+        function toggleTypingIndicator(show) {
+            typingIndicator.style.display = show ? 'flex' : 'none';
+        }
+
+        // Carregar histórico ao iniciar a página
+        loadChatHistory();
+    </script>
+</body>
+</html>

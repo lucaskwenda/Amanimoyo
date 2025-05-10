@@ -1,0 +1,629 @@
+@charset "UTF-8";
+
+   /* Variáveis CSS para consistência de cores e fontes */
+   :root {
+    --color-primary: #4aa3df;
+    --color-secondary: #34495e;
+    --color-success: #27ae60;
+    --color-light: #f9fbfd;
+    --color-dark: #2c3e50;
+    --color-text: #333;
+    --color-text-light: #7f8c8d;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+    --transition-smooth: all 0.3s ease;
+
+    --primary-color: #5664d2;
+    --secondary-color: #8a94e2;
+    --accent-color: #41b883;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #fff;
+    --error-color: #e06c75;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+  /* Overlay erro */
+  .popup-overlay-erro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.popup-overlay-erro.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup Container */
+.popup-container-erro {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.popup-overlay-erro.active .popup-container-erro {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Header */
+.popup-header-erro {
+    background-color: var(--primary-color);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+.popup-title-erro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.popup-title-erro svg {
+    width: 30px;
+    height: 30px;
+}
+
+.close-button-erro {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.close-button-erro:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Content */
+.popup-content-erro {
+    padding: 24px;
+}
+
+.inconsistency {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.inconsistency-icon {
+    color: var(--error-color);
+    flex-shrink: 0;
+}
+
+.inconsistency-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.inconsistency-desc {
+    color: var(--light-text);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.erro-date,
+.erro-login,
+.erro-consulta{
+    display: none;
+}
+
+/* Footer */
+.popup-footer-erro {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.help-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.help-link:hover {
+    color: var(--primary-color);
+}
+
+.action-button {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .popup-container-erro {
+        max-width: 90%;
+        margin: 0 20px;
+    }
+    
+    .popup-header-erro {
+        padding: 16px 20px;
+    }
+    
+    .popup-content-erro {
+        padding: 20px;
+    }
+    
+    .inconsistency {
+        gap: 12px;
+    }
+    
+    .popup-footer-erro {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .action-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+
+ /* Overlay - fundo escuro que cobre a página */
+ .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container do pop-up */
+.popup-container {
+    background-color: var(--color-light);
+    width: 90%;
+    max-width: 480px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.popup-overlay.active .popup-container {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Cabeçalho do pop-up com gradiente suave */
+.popup-header {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #85c6f7 100%);
+    z-index: 1;
+}
+
+.popup-header .pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+    background-size: 16px 16px;
+    z-index: 2;
+}
+
+/* Ícone de sucesso */
+.success-icon {
+    position: relative;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon i {
+    font-size: 36px;
+    color: var(--color-success);
+}
+
+/* Conteúdo do pop-up */
+.popup-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.popup-title {
+    color: var(--color-dark);
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.popup-message {
+    color: var(--color-text-light);
+    font-size: 16px;
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+/* Detalhes da consulta */
+.appointment-details {
+    background-color: rgba(74, 163, 223, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.appointment-details h4 {
+    font-size: 15px;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.detail-item i {
+    color: var(--color-primary);
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-right: 5px;
+}
+   /* Botão de fechar */
+   .close-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 10px rgba(74, 163, 223, 0.3);
+}
+
+.close-button:hover {
+    background-color: #3d8bc7;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(74, 163, 223, 0.4);
+}
+
+.close-button:active {
+    transform: translateY(0);
+}
+ /* Botão para adicionar calendário */
+ .calendar-button {
+    font-size: 14px;
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.calendar-button i {
+    margin-right: 5px;
+}
+
+/* Adaptações para dispositivos móveis */
+@media (max-width: 480px) {
+    .popup-container {
+        width: 95%;
+    }
+
+    .popup-header {
+        height: 80px;
+    }
+
+    .success-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .success-icon i {
+        font-size: 28px;
+    }
+
+    .popup-title {
+        font-size: 20px;
+    }
+
+    .popup-message {
+        font-size: 14px;
+    }
+
+    .popup-content {
+        padding: 20px;
+    }
+
+    .appointment-details {
+        padding: 12px;
+    }
+
+    .detail-item {
+        font-size: 13px;
+    }
+
+    .close-button {
+        padding: 10px 24px;
+        font-size: 15px;
+    }
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-top: 4.2rem;
+    padding: 3.5rem;
+}
+
+.card-header h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.card-header h1 i {
+    margin-right: 0.75rem;
+}
+
+.card-header p {
+    font-size: 1.125rem;
+    opacity: 0.8;
+}
+/* Card Body */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Grid de Transtornos */
+.disorders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.disorder-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.disorder-card:hover {
+    opacity: 0.9;
+}
+
+.disorder-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.disorder-card h3 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.disorder-card p {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+/* Cores dos Cards de Transtorno */
+.blue { background-color: #dbeafe; color: #1e40af; }
+.blue i { color: #2563eb; }
+.blue:hover { background-color: #bfdbfe; }
+
+.green { background-color: #dcfce7; color: #166534; }
+.green i { color: #16a34a; }
+.green:hover { background-color: #bbf7d0; }
+
+.purple { background-color: #f3e8ff; color: #5b21b6; }
+.purple i { color: #9333ea; }
+.purple:hover { background-color: #e9d5ff; }
+
+.kwenda { background-color: #6732d1e5; color: white; }
+.kwenda p{color: white;}
+
+/* Seção de Agendamento */
+.appointment-section {
+    margin-top: 2rem !important;
+}
+
+.appointment-section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+}
+
+.form-grid input, 
+.form-grid select, 
+.form-grid textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.form-grid select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('../assets/img/icones/arrow-down.svg');
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    background-position: calc(100% - 10px) center;
+    background-size: 14px;
+}
+
+/* Estilo para o ícone de seta */
+.form-grid select::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #8b5cf6;
+    font-size: 16px;
+}
+
+.form-grid input:focus, 
+.form-grid select:focus, 
+.form-grid textarea:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.form-grid textarea {
+    grid-column: span 2;
+}
+
+.form-grid button {
+    grid-column: span 2;
+    background-color: #8b5cf6;
+    color: white;
+    width: 300px !important;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 1rem !important;
+    border: none;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-grid button:hover {
+    background-color: #7c3aed;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .disorders-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+ 
+}
