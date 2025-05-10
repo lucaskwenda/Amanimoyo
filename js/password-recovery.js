@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkEmailExists(email) {
       loading.style.display = 'block';
       
-      return fetch('http://localhost:3000/api/verify-email', {
+      return fetch('https://amanimoyo-back.onrender.com/api/verify-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para enviar código de verificação
     function sendVerificationCode(email) {
-      return fetch('http://localhost:3000/api/send-verification', {
+      return fetch('https://amanimoyo-back.onrender.com/api/send-verification', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function verifyCode(code, email) {
       verifyLoading.style.display = 'block';
       
-      return fetch('http://localhost:3000/api/verify-code', {
+      return fetch('https://amanimoyo-back.onrender.com/api/verify-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
