@@ -161,7 +161,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     generateSHA256(data.senha);
 
     try {
-        const response = await fetch('http://localhost:4000/api/cadastropaciente', {
+        const response = await fetch('https://amanimoyo-back.onrender.com/api/cadastropaciente', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -174,7 +174,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         if (response.ok) {
             alert('Cadastro realizado com sucesso!');
             e.target.reset();
-            window.location.href = '../pages/verification-page.html';
+            window.location.href = 'pages/verification-page.html';
         } else {
             
             erroMessage.textContent = result.error || 'Erro ao cadastrar. Tente novamente.';
