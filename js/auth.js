@@ -8,7 +8,7 @@ function verificaLogin() {
     // Verifica se existe um token no localStorage e redireciona para a página de login caso não exista.
     const token = localStorage.getItem('userToken');
     if (!token) {
-         window.location.href = 'pages/login.html';
+        // window.location.href = 'pages/login.html';
         return;
     }
       showUserBtnProfile();
