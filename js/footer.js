@@ -1,6 +1,6 @@
 // btnChat.addEventListener('click', handleChatButtonClick)
 // Adicionar o evento de clique ao botão
-//const base = '/https://lucaskwenda.github.io/Amanimoyo/';
+const base = '/https://lucaskwenda.github.io/Amanimoyo/';
 const chatButton = document.querySelectorAll('.btn-chat');
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Função para redirecionar para a página de login
   function redirectToLogin() {
     // Salva a página do chat como destino após o login
-    sessionStorage.setItem('redirectAfterLogin', 'Amanimoyo/chat/chatIA.html');
+    sessionStorage.setItem('redirectAfterLogin', `${base}chat/chatIA.html`);
     // Redireciona para a página de login
-    window.location.href = 'Amanimoyo/pages/login.html';
+    window.open(base + 'pages/login.html', '_self')
   }
   // Função para redirecionar para o chat
   function redirectToChat() {
-    window.location.href = 'Amanimoyo/chat/chatIA.html';
+    window.open( base + 'chat/chatIA.html', '_self')
+        
   }
   
   function handleChatButtonClick() {
