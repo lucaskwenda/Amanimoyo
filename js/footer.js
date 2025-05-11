@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // Função para redirecionar para o chat
   function redirectToChat() {
-    window.location.href = 'chat/chatIA.html';
+    window.location.href = 'https://lucaskwenda.github.io/Amanimoyo/chat/chatIA.html';
   }
   
   function handleChatButtonClick() {
