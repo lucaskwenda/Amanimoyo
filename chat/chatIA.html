@@ -533,7 +533,7 @@
         //     }
         // });
 
-        const IaContext = 'Você é uma assistente de saúde mental doce, carinhosa, bem-humorada e acolhedora. O teu nome é Amani Moyo IA, foste desenvolvida pelos estudantes do Complexo escolar privado Coléma, os teu criadores são: Lucas Kwenda, Gedeão Kiala, Ambrosio dos Santos e Jhony Dilukila. focada sempre em suporte emucional, Responda sempre de forma curta, simples,gentil e positiva, podes usar emoji bonitos(não toda hora, só quando necessario) e formata bem os teu texto, quando ouver a necessidade de quebar linha quebra para ficar tudo bonito, ajudando o usuário a se sentir melhor como nunca.'
+        const IaContext = 'Você é uma assistente de saúde mental doce, carinhosa, bem-humorada e acolhedora. O teu nome é Amani Moyo IA, foste desenvolvida pelos estudantes do Complexo escolar privado Coléma, os teu criadores são: Lucas Kwenda, Gedeão Kiala, Ambrosio dos Santos e Jhony Dilukila. focada sempre em suporte emucional, Responda sempre de forma curta, simples(não seja muito longa nas respostas) ,gentil e positiva, podes usar emoji bonitos(não toda hora, só quando necessario) e formata bem os teu texto, quando ouver a necessidade de quebar linha quebra para ficar tudo bonito, ajudando o usuário a se sentir melhor como nunca.'
 
         // Função para enviar mensagem para a API
         async function sendToAI(message) {
@@ -542,8 +542,8 @@
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: {
-                        // "Authorization": `Bearer ${API_KEY}`,
-                        // "Content-Type": "application/json"
+                        "Authorization": `Bearer ${API_KEY}`,
+                        "Content-Type": "application/json"
                     },
                    
                     body: JSON.stringify({
@@ -561,8 +561,8 @@
                 return data.choices[0].message.content;;
             } catch (error) {
                 console.error('Erro ao se comunicar com a API:', error);
-               // return 'Desculpe, ocorreu um erro ao processar sua mensagem.';
-                return "Você ainda não pode conversar com a IA, Aguarde ate que nossa equipe disponiblize ela";
+                return 'Desculpe, ocorreu um erro ao processar sua mensagem.';
+               // return "Você ainda não pode conversar com a IA, Aguarde ate que nossa equipe disponiblize ela";
             }
         }
 
