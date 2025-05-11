@@ -27,5 +27,5 @@ function logout() {
     // localStorage.removeItem('userToken');
     // localStorage.removeItem('userData');
     localStorage.clear();
-    window.location.href = 'pages/login.html';
+    window.location.href = '/Amanimoyo/pages/login.html';
 }
