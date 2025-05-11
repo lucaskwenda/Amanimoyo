@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Função para redirecionar para a página de login
   function redirectToLogin() {
     // Salva a página do chat como destino após o login
-    sessionStorage.setItem('redirectAfterLogin', '../Amanimoyo/chat/chatIA.htmll');
+    sessionStorage.setItem('redirectAfterLogin', '/Amanimoyo/chat/chatIA.htmll');
     // Redireciona para a página de login
-       window.location.href = '../Amanimoyo/pages/login.html';
+       window.location.href = '/Amanimoyo/pages/login.html';
   }
   // Função para redirecionar para o chat
   function redirectToChat() {
-    window.location.href = '../Amanimoyo/chat/chatIA.html';
+    window.location.href = '/Amanimoyo/chat/chatIA.html';
         
   }
   
