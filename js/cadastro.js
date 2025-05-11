@@ -172,7 +172,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         const result = await response.json();
         
         if (response.ok) {
-            alert('Cadastro realizado com sucesso!');
+           // alert('Cadastro realizado com sucesso!');
             e.target.reset();
             window.location.href = '/Amanimoyo/pages/verification-page.html';
         } else {
