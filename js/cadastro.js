@@ -159,6 +159,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     // console.log("Dados do formulário:", data);
 
     generateSHA256(data.senha);
+    console.log(data.senha);
 
     try {
         const response = await fetch('https://amanimoyo-back.onrender.com/api/cadastropaciente', {
