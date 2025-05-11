@@ -158,7 +158,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
      }
     // console.log("Dados do formulário:", data);
 
-    generateSHA256(data.senha);
+    data.senha = generateSHA256(data.senha);
     console.log(data.senha);
 
     try {
