@@ -43,7 +43,8 @@ function generateSHA256(password) {
 
         
         // Chama a função de login bem-sucedido
-      window.location.href = '/Amanimoyo/index.html';
+      //window.location.href = '/Amanimoyo/index.html';
+      window.location.href = './index.html';
         onSuccessfulLogin();
         
     } catch (error) {
@@ -80,6 +81,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 function redirectToPerfil()  {
-  window.location.href = '/Amanimoyo/pages/user-profile.html';
+ // window.location.href = '/Amanimoyo/pages/user-profile.html';
+   window.location.href = './pages/user-profile.html';
 
 }
