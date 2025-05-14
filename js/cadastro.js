@@ -175,7 +175,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         if (response.ok) {
            // alert('Cadastro realizado com sucesso!');
             e.target.reset();
-            window.location.href = '/Amanimoyo/pages/verification-page.html';
+            window.location.href = '/pages/verification-page.html';
         } else {
             
             erroMessage.textContent = result.error || 'Erro ao cadastrar. Tente novamente.';
