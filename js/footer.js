@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Função para redirecionar para a página de login
   function redirectToLogin() {
     // Salva a página do chat como destino após o login
-    sessionStorage.setItem('redirectAfterLogin', '/chat/chatIA.html');
+    sessionStorage.setItem('redirectAfterLogin', './chat/chatIA.html');
     // Redireciona para a página de login
-       window.location.href = './pages/login.html';
+       window.location.href = 'https://amanimoyo.vercel.app/pages/login.html';
   }
   // Função para redirecionar para o chat
   function redirectToChat() {
