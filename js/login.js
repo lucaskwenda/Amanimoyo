@@ -82,6 +82,6 @@ document.addEventListener('keydown', function(e) {
 
 function redirectToPerfil()  {
  // window.location.href = '/Amanimoyo/pages/user-profile.html';
-   window.location.href = './pages/user-profile.html';
+   window.location.href = '/pages/user-profile.html';
 
 }
