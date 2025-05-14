@@ -54,7 +54,7 @@
              successMessage.style.display = 'block';
              errorMessage.style.display = 'none';
              setTimeout(() => {
-                 window.location.href = '/pages/user-profile.html';
+                 window.location.href = '../index.html';
              }, 2000);
          } else {
              errorMessage.style.display = 'block';
