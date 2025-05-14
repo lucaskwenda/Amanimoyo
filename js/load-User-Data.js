@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Frontend (client.js)
 async function fetchProfilePicture(userId) {
-    console.log(userId)
+    // console.log(userId)
     try {
         const response = await fetch(`https://amanimoyo-back.onrender.com/profile-picture/${userId}`);
         if (!response.ok) {
@@ -16,11 +16,11 @@ async function fetchProfilePicture(userId) {
         }
         const imageBlob = await response.blob();
         const imageUrl = URL.createObjectURL(imageBlob);
-        const imgElement = document.getElementById('user-photo');
-        imgElement.src = imageUrl;
+        // const imgElement = document.getElementById('user-photo');
+        // imgElement.src = imageUrl;
     } catch (error) {
         console.error('Erro:', error);
-        document.getElementById('user-photo').alt = 'Imagem não encontrada';
+        // document.getElementById('user-photo').alt = 'Imagem não encontrada';
     }
 }
 
@@ -57,14 +57,22 @@ async function buscarUsuario(userId) {
 }
 
 function showUserInformation(user) {
+    localStorage.setItem('senha', '1234')
+    let senha = null
+    senha = localStorage.getItem('senha', JSON.stringify(senha))
    userName = document.querySelector('.profile-name');
    userEmail = document.querySelector('.profile-email');
    username = document.querySelector('.user-name');
    userBiografia = document.querySelector('.biografia');
+   const userPhoneNumber = document.querySelector('.user-number');
+    const userPassword = document.querySelector('.user-password');
+
 
     userName.innerHTML = user.nome;
     username.value = user.nome;
     userEmail.value = user.email;
     userBiografia.value = user.biografia;
+    userPhoneNumber.value = user.phone;
+    userPassword.value = senha;
 
 }

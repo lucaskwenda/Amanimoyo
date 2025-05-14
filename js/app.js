@@ -8,12 +8,13 @@ const btnEntrar = document.getElementById('entrar');
 const btnConsulta = document.getElementById('btn-consulta');
 
 const userPhoto = document.querySelector('.user-avatar')
-// const userDate = JSON.pa~9rse(localStorage.getItem('userDate'))
+// const userDate = JSON.parse(localStorage.getItem('userDate'))
+
 
  if(btnEntrar) btnEntrar.addEventListener('click', entrar);
  if(btnEntrar)  btnEntrar.addEventListener('touchstart', entrar)
 
-  // console.log(userData)
+  // console.log(userDate)
   
 // userPhoto.src = userDate;
 

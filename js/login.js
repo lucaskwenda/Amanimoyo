@@ -13,6 +13,8 @@ function generateSHA256(password) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    localStorage.setItem('senha', password);
+
     // const mensagemErro = document.getElementById('mensagemErro');
 
     // Gera o hash da senha

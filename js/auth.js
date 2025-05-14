@@ -1,5 +1,12 @@
 // auth.js
 
+const userDate = localStorage.getItem('userData');
+const user = JSON.parse(userDate);
+const userAvatar = document.querySelector('.user-avatar');
+const primeiraLetra = user.nome.charAt(0).toUpperCase();
+
+console.log(user.nome
+)
 document.addEventListener('DOMContentLoaded', function() {
     verificaLogin();
 });
@@ -17,9 +24,10 @@ function verificaLogin() {
 function showUserBtnProfile() {
     const userProfileBtn = document.querySelector('.user-profile-btn');
     userProfileBtn.style.display = 'inline-block';
+    userAvatar.innerHTML = primeiraLetra;
     const btnEntrar = document.getElementById('entrar')
     btnEntrar.style.display = 'none';
-    console.log('Dados no localStorage:', localStorage.getItem('userData'));
+    
 }
 
 const btnLogout = document.querySelector('.logout').addEventListener('click', logout);

@@ -21,7 +21,7 @@ form.addEventListener('click', (e) => {
         biografia: document.getElementById('biografia').value,
         senha: document.getElementById('password').value,
     };
-    console.log("Dados completos kenda:", data);
+    // console.log("Dados completos kenda:", data);
     if(!e.target.matches('[data-action]')) { return }
     const actions = {
         next() {
@@ -149,7 +149,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     localStorage.setItem('userEmail', data.email);
     localStorage.setItem('userName', data.nome);
     
-    console.log("Dados completos:", data);
+    // console.log("Dados completos:", data);
 
     // chama uma função para validar os dados
      if (!validateData(data)) {
@@ -159,7 +159,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     // console.log("Dados do formulário:", data);
 
     data.senha = generateSHA256(data.senha);
-    console.log(data.senha);
+    // console.log(data.senha);
 
     try {
         const response = await fetch('https://amanimoyo-back.onrender.com/api/cadastropaciente', {

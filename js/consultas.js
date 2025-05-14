@@ -37,6 +37,7 @@ setTimeout(() => {
 // })
 
 document.getElementById('appointmentForm').addEventListener('submit', async(e) => {
+ 
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
@@ -62,6 +63,9 @@ document.getElementById('appointmentForm').addEventListener('submit', async(e) =
         // alert('Consulta agendada com sucesso!');
         showPopupSuccess(data); // Show the success pop-up with the appointment data
         form.reset();
+        localStorage.setItem('horas', JSON.stringify(data.data));
+        localStorage.setItem('horario', JSON.stringify(data.horario));
+        localStorage.setItem('transtorno', JSON.stringify(data.transtorno))
         localStorage.setItem('consulta', JSON.stringify(true));
     } else {
      
@@ -99,10 +103,32 @@ sintomas.addEventListener('input', ()=>{
    
 // Função para validar os dados do formulário
 function validateData(data) {
+
+    const inpudate = document.querySelector('#date').value;
+
+    console.log(inpudate)
+
+      if (!inpudate) {
+        erroDataInfo.textContent = 'selecione uma data para a consulta';
+        erroData.style.display = 'flex';
+        showPopup();
+        return false;
+      }
+
+      const dataConsulta = new Date(inpudate);
+      const ano = dataConsulta.getFullYear();
+
+      if (ano !== 2025) {
+        erroDataInfo.textContent = ' A data deve estar dentro do ano corrente (2025)';
+        erroData.style.display = 'flex';
+        showPopup();
+        return false;
+      }
      
     if(!localStorage.getItem('userData')){
         erroLogin.style.display = 'flex';    
         showPopup();
+        return false
     }
     
     if (data.nomeUser.length < 5) {
