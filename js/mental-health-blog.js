@@ -1,3 +1,20 @@
+
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    // Executa assim que o script for lido
+  const token = localStorage.getItem('userData');
+
+  if (!token) {
+    // Impede que o resto da página seja carregado (opcional)
+    document.write('Redirecionando...');
+    alert('Você precisa iniciar sessão')
+    // Redireciona para a página de login
+    window.location.href = '../index.html';
+  }else{
+
+    
 const articles = [
     {
         id: 1,
@@ -414,3 +431,9 @@ function openArticle(articleId) {
 }
 // Inicializar o blog com todos os artigos
 displayArticles();
+
+
+  }
+})
+
+
