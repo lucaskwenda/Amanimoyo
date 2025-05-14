@@ -44,7 +44,7 @@ function generateSHA256(password) {
         
         // Chama a função de login bem-sucedido
       //window.location.href = '/Amanimoyo/index.html';
-      window.location.href = './index.html';
+      window.location.href = '../index.html';
         onSuccessfulLogin();
         
     } catch (error) {
