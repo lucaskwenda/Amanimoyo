@@ -119,7 +119,7 @@ function validateData(data) {
       const ano = dataConsulta.getFullYear();
         const mes = dataConsulta.getMonth() + 1; // Janeiro é 0, então soma 1
         const dia = dataConsulta.getDate(); 
-    if(mes = 5 && dia <= 15){
+    if(mes == 5 && dia <= 15){
          erroDataInfo.textContent = ' você só pode agendar consulta apartir de amanhã (16-05-2025 ';
         erroData.style.display = 'flex';
         showPopup();
