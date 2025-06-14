@@ -1,7 +1,7 @@
 # 🧠 Amanimoyo - Plataforma de Suporte à Saúde Mental
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x400/4f46e5/ffffff?text=AMANIMOYO+%F0%9F%A7%A0" alt="Amanimoyo Platform" width="100%" />
+  <img src="./assets/images/amanimoyo-banner.png" alt="Amanimoyo Platform" width="100%" />
   
   [![Status](https://img.shields.io/badge/Status-Ativo-brightgreen)](https://github.com/seu-usuario/amanimoyo)
   [![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/seu-usuario/amanimoyo)
