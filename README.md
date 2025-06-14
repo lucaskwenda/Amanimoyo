@@ -181,12 +181,16 @@ A integração com o LLaMA da Meta permite conversas naturais e empáticas:
 
 ```javascript
 // Exemplo de configuração do serviço LLaMA
-const llamaService = {
-  model: 'llama-2-70b-chat',
-  temperature: 0.7,
-  maxTokens: 1000,
-  systemPrompt: `Você é um assistente especializado em saúde mental, 
-                 empático e preparado para oferecer suporte emocional...`
+  body: JSON.stringify({
+                        messages: [
+          { role: "system", content: IaContext },
+          { role: "user", content: message }
+        ],
+           model: 'meta-llama/Llama-3-8b-chat-hf',
+           temperature: 0.7,
+           max_tokens: 140
+        })
+});
 };
 ```
 
@@ -254,14 +258,14 @@ Contribuições são bem-vindas! Por favor, leia as diretrizes de contribuição
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado para todos usarem.
 
 ## 👨‍💻 Autor
 
-**Seu Nome**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
-- Email: seu.email@exemplo.com
+**Lucas Kwenda, John Dilukila, Ambrosio dos Santos e Gedeão Kiala**
+- GitHub: [@seu-usuario](https://github.com/lucaskwenda)
+- LinkedIn: [Seu Perfil](https://linkedin.com/in/lucas-kwenda-92704232a)
+- Email: kwenda1000.email@exemplo.com
 
 ## 🙏 Agradecimentos
 
@@ -275,13 +279,13 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 Para suporte técnico ou dúvidas sobre o projeto:
 
-- 📧 Email: suporte@amanimoyo.com
-- 📱 WhatsApp: +244 XXX XXX XXX
-- 🌐 Website: [www.amanimoyo.com](https://www.amanimoyo.com)
+- 📧 Email: kwenda1000@gmail.com
+- 📱 WhatsApp: +244 954 012 189
+- 🌐 Website: [www.amanimoyo.vercel.app](https://www.amanimoyo.vercel.app)
 
 ---
 
 <div align="center">
   <p><strong>Feito com ❤️ para apoiar a saúde mental de todos</strong></p>
-  <img src="https://via.placeholder.com/400x100/4f46e5/ffffff?text=Amanimoyo+%E2%9D%A4%EF%B8%8F" alt="Amanimoyo Footer" />
+  <img src=".assets/img/amanimoyo-footer.png" alt="Amanimoyo Footer" />
 </div>
