@@ -287,5 +287,5 @@ Para suporte técnico ou dúvidas sobre o projeto:
 
 <div align="center">
   <p><strong>Feito com ❤️ para apoiar a saúde mental de todos</strong></p>
-  <img src=".assets/img/amanimoyo-footer.png" alt="Amanimoyo Footer" />
+  <img src="./assets/img/amanimoyo-footer.png" alt="Amanimoyo Footer" />
 </div>
